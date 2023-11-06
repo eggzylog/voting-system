@@ -1,11 +1,11 @@
 import HeightScreen from '../components/HeightScreen'
 
-const About = () => {
+const Hackathon = () => {
   return (
     <HeightScreen>
-      <h2>About</h2>
+      <h2>Hackathon</h2>
     </HeightScreen>
   )
 }
 
-export default About
+export default Hackathon
