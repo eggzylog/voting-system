@@ -16,17 +16,27 @@ const ImageCard = ({ idx }: { idx: number }) => {
       {/* <figure>
         <img src="https://picsum.photos/400/200" alt={`Image ${idx}`} />
       </figure> */}
-      <div className='bg-gradient-to-b h-full from-[#04bfd87f] to-[#11113A] outline-[#39395B] flex flex-col justify-center items-center'>
-        <img className='w-1/2 h-1/2' src={daedalus}></img>
-        <h1 className='font-bold text-white mt-3 lg:text-3xl'>D'Rocketeers</h1>
+      <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#04bfd87f] to-[#11113A] outline-[#39395B]">
+        <img className="h-1/2 w-1/2" src={daedalus}></img>
+        <h1 className="mt-3 font-bold text-white lg:text-3xl">D'Rocketeers</h1>
       </div>
 
-      <div className={`card-body text-center bg-gradient-to-b from-[#1A1A48] to-[#06062c] justify-between ${!isHovered ? 'hidden' : ''}`}>
-        <h2 className="card-title text-white text-3xl font-bold">Daedalus Voting System</h2>
-        <a href='#' className='decoration-solid'>Visit site</a>
+      <div
+        className={`card-body justify-between bg-gradient-to-b from-[#1A1A48] to-[#06062c] text-center ${
+          !isHovered ? 'hidden' : ''
+        }`}
+      >
+        <h2 className="card-title text-3xl font-bold text-white">
+          Daedalus Voting System
+        </h2>
+        <a href="#" className="decoration-solid">
+          Visit site
+        </a>
         <h5>Members:</h5>
         <div className="card-actions justify-center">
-          <button className="btn bg-white hover:bg-[#11113A] text-[#11113A] w-full hover:text-white">VOTE</button>
+          <button className="btn w-full bg-white text-[#11113A] hover:bg-[#11113A] hover:text-white">
+            VOTE
+          </button>
         </div>
       </div>
     </div>
