@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
 import daisyui from 'daisyui'
+import type { Config } from 'tailwindcss'
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -7,6 +7,12 @@ export default {
     extend: {
       backgroundImage: {
         'blob': "url('./src/assets/svg/blob.svg')" 
+      },
+      colors:{
+         primary: '#04C0D8',
+         secondary: '#39395B',
+         'background-darker': '#11113A',
+         'background-lighter': '#1A1A48',
       }
     }
   },
