@@ -1,7 +1,7 @@
-import AuthLayout from './layouts/AuthLayout'
-import Home from './views/Home'
-import About from './views/About'
-import Hackathon from './views/Hackathon'
+import AuthLayout from '@/layouts/AuthLayout'
+import About from '@/views/About'
+import Hackathon from '@/views/Hackathon'
+import Home from '@/views/Home'
 
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
