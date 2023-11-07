@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
+import { SignedIn, UserButton } from '@clerk/clerk-react'
 
 const Navbar = () => {
   return (
@@ -25,32 +26,34 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
-        {/* profile photo */}
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
-            <div className="w-10 rounded-full">
-              <img src="https://picsum.photos/100/100" alt="profile photo" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content rounded-box menu-sm z-[1] mt-3 w-52 bg-base-100 p-2 shadow"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
+        <SignedIn>
+          {/* profile photo */}
+          {/* <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
+              <div className="w-10 rounded-full">
+                <img src="https://picsum.photos/100/100" alt="profile photo" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content rounded-box menu-sm z-[1] mt-3 w-52 bg-base-100 p-2 shadow"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div> */}
+          <UserButton />
+        </SignedIn>
       </div>
     </div>
   )
