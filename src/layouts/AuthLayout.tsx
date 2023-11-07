@@ -5,11 +5,11 @@ import { Outlet } from 'react-router-dom'
 const AuthLayout = () => {
   return (
     <div className="dark:bg-[#11113A] bg-blob">
-      <div className="container mx-auto ">
+      <div className="container pt-5 mx-auto ">
         <Navbar />
         <Outlet />
-        <Footer />
       </div>
+      <Footer />
     </div>
   )
 }
