@@ -3,10 +3,12 @@ import SignIn from '../views/SignIn'
 
 const GuestLayout = () => {
   return (
-    <div className="dark:bg-slate-800">
-      <HeightScreen>
+    <div className="dark:bg-[#11113A]">
+      <div className='bg-blob'>
+        <HeightScreen>
         <SignIn />
-      </HeightScreen>
+        </HeightScreen>
+      </div>
     </div>
   )
 }

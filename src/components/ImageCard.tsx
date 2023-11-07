@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import daedalus from '../assets/png/DAEDALUS-WHITE.png'
 
 const ImageCard = ({ idx }: { idx: number }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -8,19 +9,24 @@ const ImageCard = ({ idx }: { idx: number }) => {
       key={idx}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`card relative col-span-full h-48 w-96 overflow-hidden bg-base-100 shadow-xl md:col-span-6 lg:col-span-4 ${
+      className={`card relative col-span-full h-96 w-full overflow-hidden shadow-xl md:col-span-6 lg:col-span-3 ${
         isHovered ? 'image-full' : ''
       }`}
     >
-      <figure>
+      {/* <figure>
         <img src="https://picsum.photos/400/200" alt={`Image ${idx}`} />
-      </figure>
+      </figure> */}
+      <div className='bg-gradient-to-b h-full from-[#04bfd87f] to-[#11113A] outline-[#39395B] flex flex-col justify-center items-center'>
+        <img className='w-1/2 h-1/2' src={daedalus}></img>
+        <h1 className='font-bold text-white mt-3 lg:text-3xl'>D'Rocketeers</h1>
+      </div>
 
-      <div className={`card-body ${!isHovered ? 'hidden' : ''}`}>
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+      <div className={`card-body text-center bg-gradient-to-b from-[#1A1A48] to-[#06062c] justify-between ${!isHovered ? 'hidden' : ''}`}>
+        <h2 className="card-title text-white text-3xl font-bold">Daedalus Voting System</h2>
+        <a href='#' className='decoration-solid'>Visit site</a>
+        <h5>Members:</h5>
+        <div className="card-actions justify-center">
+          <button className="btn bg-white hover:bg-[#11113A] text-[#11113A] w-full hover:text-white">VOTE</button>
         </div>
       </div>
     </div>
