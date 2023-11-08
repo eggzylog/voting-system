@@ -2,6 +2,7 @@ import AuthLayout from '@/layouts/AuthLayout'
 import About from '@/views/About'
 import Hackathon from '@/views/Hackathon'
 import Home from '@/views/Home'
+import HeightScreen from '@/components/HeightScreen'
 
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
@@ -26,13 +27,17 @@ function ClerkProviderWithRoutes() {
         <Route
           path="/sign-in/*"
           element={
-            <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" />
+            <HeightScreen>
+              <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" />
+            </HeightScreen>
           }
         />
         <Route
           path="/sign-up/*"
           element={
-            <SignUp routing="path" path="/sign-up" signInUrl="/sign-in" />
+            <HeightScreen>
+              <SignUp routing="path" path="/sign-up" signInUrl="/sign-in" />
+            </HeightScreen>
           }
         />
       </Routes>
