@@ -1,4 +1,4 @@
-import HeightScreen from '../components/HeightScreen'
+import HeightScreen from '@/components/HeightScreen'
 
 const Hackathon = () => {
   return (
