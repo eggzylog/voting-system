@@ -16,7 +16,7 @@ const ImageCard = ({ idx }: { idx: number }) => {
       {/* <figure>
         <img src="https://picsum.photos/400/200" alt={`Image ${idx}`} />
       </figure> */}
-      <div className='bg-gradient-to-b h-full from-[#04bfd87f] to-[#11113A] outline-[#39395B] flex flex-col justify-center items-center'>
+      <div className='bg-gradient-to-b h-full from-[#04bfd842] to-[#11113a77] outline-[#39395B] flex flex-col justify-center items-center'>
         <img className='w-1/2 h-1/2' src={daedalus}></img>
         <h1 className='font-bold text-white mt-3 lg:text-3xl'>D'Rocketeers</h1>
       </div>

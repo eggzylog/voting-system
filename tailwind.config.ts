@@ -6,13 +6,16 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'blob': "url('./src/assets/svg/blob.svg')" 
+        'blob': "url('./src/assets/svg/blob.svg')",
+      },
+      backgroundPosition: {
+        'right-farthest': '10% 50%',
       },
       colors:{
-         primary: '#04C0D8',
-         secondary: '#39395B',
-         'background-darker': '#11113A',
-         'background-lighter': '#1A1A48',
+        primary: '#04C0D8',
+        secondary: '#39395B',
+        'background-darker': '#11113A',
+        'background-lighter': '#1A1A48',
       }
     }
   },
