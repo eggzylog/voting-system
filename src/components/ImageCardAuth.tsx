@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
 import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 import { Team } from '@/types/team'
@@ -7,9 +7,6 @@ import { useVote } from '@/hooks/useVote'
 
 const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   const { user } = useGlobalUser()
-
-  console.log('User ID: ' + user.userId)
-  console.log('Team ID: ' + team.teamId)
 
   const { hasVote, setHasVote } = useVote()
 
@@ -21,6 +18,9 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       teamId: team.teamId
     }
 
+    console.log('User ID: ' + user.userId)
+    console.log('Team ID: ' + team.teamId)
+
     const res = await fetch('api/v1/votes', {
       method: 'POST',
       headers: {
@@ -30,7 +30,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       body: JSON.stringify(voteData)
     })
 
-    if (res.status == 200) setHasVote(true)
+    if (res.status == 201) setHasVote(true)
   }
 
   return (
@@ -43,7 +43,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       }`}
     >
       <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#04bfd87f] to-[#11113A] outline-[#39395B]">
-        <img className="h-1/2 w-1/2" src={daedalus}></img>
+        <img alt="daedalus" className="h-1/2 w-1/2" src={daedalus} />
         <h1 className="mt-3 font-bold text-white lg:text-3xl">D'Rocketeers</h1>
       </div>
 
@@ -60,7 +60,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
         </a>
         <h5>Members:</h5>
         {team.members.map((member) => (
-          <p>{member.user.username}</p>
+          <p key={member.id}>{member.user.username}</p>
         ))}
 
         <div className="card-actions justify-center">
