@@ -3,22 +3,8 @@ import { Team, TeamSchema } from '../types/team'
 import { useQuery } from '@tanstack/react-query'
 import ImageCard from '@/components/ImageCardAuth'
 import hack from '@/assets/png/hack.png'
-import { useVote } from '@/hooks/useVote'
-import { useGlobalUser } from '@/hooks/useGlobalUser'
 
 const Hackathon = () => {
-  const { user } = useGlobalUser()
-  const { hasVote, setHasVote } = useVote()
-
-  useQuery({
-    queryKey: ['hasVote'],
-    queryFn: async () => {
-      const res = await fetch(`/api/v1/votes?user=${user.userId}`)
-      const data = await res.json()
-      setHasVote(data.hasVote)
-    }
-  })
-
   const {
     isLoading: isTeamsLoading,
     error: isTeamsError,
