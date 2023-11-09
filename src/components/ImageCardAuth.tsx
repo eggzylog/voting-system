@@ -1,9 +1,37 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
 import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { Team } from '@/types/team'
+import { useGlobalUser } from '@/hooks/useGlobalUser'
+import { useVote } from '@/hooks/useVote'
 
-const ImageCard = ({ idx }: { idx: number }) => {
+const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
+  const { user } = useGlobalUser()
+
+  console.log('User ID: ' + user.userId)
+  console.log('Team ID: ' + team.teamId)
+
+  const { hasVote, setHasVote } = useVote()
+
   const [isHovered, setIsHovered] = useState(false)
+
+  const handleVote: React.MouseEventHandler<HTMLButtonElement> = async () => {
+    const voteData: { userId: number; teamId: number } = {
+      userId: user.userId,
+      teamId: team.teamId
+    }
+
+    const res = await fetch('api/v1/votes', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+
+      body: JSON.stringify(voteData)
+    })
+
+    if (res.status == 200) setHasVote(true)
+  }
 
   return (
     <div
@@ -25,12 +53,16 @@ const ImageCard = ({ idx }: { idx: number }) => {
         }`}
       >
         <h2 className="card-title text-3xl font-bold text-white">
-          Daedalus Voting System
+          {team.name}
         </h2>
         <a href="#" className="decoration-solid">
           Visit site
         </a>
         <h5>Members:</h5>
+        {team.members.map((member) => (
+          <p>{member.user.username}</p>
+        ))}
+
         <div className="card-actions justify-center">
           {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
           <SignedOut>
@@ -44,10 +76,13 @@ const ImageCard = ({ idx }: { idx: number }) => {
             <button
               className="btn w-full bg-white text-[#11113A] hover:bg-[#11113A] hover:text-white"
               // Add the Vote logic here 👇
-              onClick={() => console.log('vote iz clicked')}
+              disabled={hasVote}
+              onClick={(e) => handleVote(e)}
             >
               VOTE
             </button>
+
+            {hasVote && <p>Votes: {team.votes}</p>}
           </SignedIn>
         </div>
       </div>
