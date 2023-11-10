@@ -1,8 +1,19 @@
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import UserProvider from '@/contexts/UserGlobalContext'
+import VoteProvider from '@/contexts/VoteContext'
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Outlet } from 'react-router-dom'
 
-const AuthLayout = () => {
+export default function AuthLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
+  const queryClient = new QueryClient()
+  
   return (
     <QueryClientProvider client={queryClient}>
       <SignedIn>
@@ -31,5 +42,3 @@ const AuthLayout = () => {
     </QueryClientProvider>
   )
 }
-
-export default AuthLayout
