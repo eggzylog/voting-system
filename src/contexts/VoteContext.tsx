@@ -1,6 +1,7 @@
-import { useGlobalUser } from '@/hooks/useGlobalUser'
-import { useQuery } from '@tanstack/react-query'
 import { createContext, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
+import { useGlobalUser } from '@/hooks/useGlobalUser'
 
 export type VoteContextType = {
   hasVote: boolean

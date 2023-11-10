@@ -1,7 +1,8 @@
+import { useState } from 'react'
+
+import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
-import { User, UserSchema } from '@/types/user'
-import { useState } from 'react'
 
 const Season2 = () => {
   const globalUser = useGlobalUser()
