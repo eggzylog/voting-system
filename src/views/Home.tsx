@@ -6,7 +6,7 @@ const Home = () => {
       <div className="grid lg:grid-rows-5 grid-rows-1 grid-cols-1 md:grid-cols-2 md:gap-x-10">
         <div className="col-span-1 relative lg:row-span-3 row-span-1 text-center grid place-content-end md:text-right lg:place-items-end">
           {/* <img src={Radial} className='absolute w-[7rem] left-40 top-14'></img> */}
-          <h3 className='lg:text-5xl md:text-4xl text-2xl font-bold text-white'>Welcome to Daedalus</h3>
+          <h3 className='lg:text-6xl md:text-4xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500'>DAEDALUS' HACKATHON</h3>
           <p className='lg:my-5 md:my-3 my-2  lg:text-2xl '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus delectus molestiae sit modi ut at velit, voluptatibus illum sequi aut aperiam dolore fugit beatae asperiores earum adipisci laboriosam eum enim.</p>
         </div>
         <div className="col-span-1 lg:row-span-5 md:row-span-3 row-span-1 grid justify-items-center">
@@ -25,7 +25,7 @@ const Home = () => {
           <h2 className='font-bold italic md:text-2xl text-xl text-white mb-3'>Hackathon Season 2</h2>
           <p className='md:text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi quo impedit autem nam, doloremque unde, itaque labore expedita fugiat distinctio iusto iure commodi, obcaecati illum dolore dicta aspernatur eos sint.</p>
           <button className="btn lg:mt-5 md:mt-4 mt-3 row-span-1 lg:w-3/12 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] lg:px-12 hover:bg-[#ffffff2c] hover:outline hover:text-white">Explore</button>
-          <img src={Cube} alt='cube' className='lg:absolute z-10 top-[-3rem] right-[-2rem] lg:max-w-[10rem]'/>
+          <img src={Cube} alt='cube' className='lg:absolute md:absolute z-10 top-[-3rem] lg:right-[-2rem] md:right-0 lg:max-w-[10rem] md:max-w-[7rem] max-w-0'/>
         </div>
       </div>
     </div>

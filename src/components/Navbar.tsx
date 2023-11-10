@@ -55,13 +55,25 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-16 px-[32px]">
             <li className="text-2xl">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/"
+              className={({ isActive }) =>
+                isActive ? "text-white bg-inherit font-bold underline underline-offset-[15px]" : ""
+              }
+              >Home</NavLink>
             </li>
-            <li className="text-2xl">
-              <NavLink to="/about">About Us</NavLink>
+            <li className="text-2xl hover:underline underline-offset-[15px]">
+              <NavLink to="/about"
+                className={({ isActive }) =>
+                isActive ? "text-white bg-inherit font-bold underline underline-offset-[15px]" : ""
+              }
+              >About Us</NavLink>
             </li>
-            <li className="text-2xl">
-              <NavLink to="/hackathon">Hackathon</NavLink>
+            <li className="text-2xl hover:underline underline-offset-[15px]">
+              <NavLink to="/hackathon"
+                className={({ isActive }) =>
+                isActive ? "text-white bg-inherit font-bold underline underline-offset-[15px]" : ""
+              }
+              >Hackathon</NavLink>
             </li>
           </ul>
         </div>
