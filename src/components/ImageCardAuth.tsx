@@ -1,18 +1,20 @@
 import { useState } from 'react'
-import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
+import { Link } from 'react-router-dom'
 import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
+
+import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
 import { Team } from '@/types/team'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useVote } from '@/hooks/useVote'
 
-const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
+const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
   const { user } = useGlobalUser()
 
   const { hasVote, setHasVote } = useVote()
 
   const [isHovered, setIsHovered] = useState(false)
 
-  const handleVote: React.MouseEventHandler<HTMLButtonElement> = async () => {
+  const handleVote = async () => {
     const voteData: { hackathonId: number; userId: number; teamId: number } = {
       hackathonId: 1,
       userId: user.userId,
@@ -27,7 +29,6 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       headers: {
         'content-type': 'application/json'
       },
-
       body: JSON.stringify(voteData)
     })
 
@@ -44,7 +45,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       }`}
     >
       <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#04bfd87f] to-[#11113A] outline-[#39395B]">
-        <img alt="daedalus" className="h-1/2 w-1/2" src={daedalus} />
+        <img src={daedalus} alt="daedalus" className="h-1/2 w-1/2" />
         <h1 className="mt-3 font-bold text-white lg:text-3xl">D'Rocketeers</h1>
       </div>
 
@@ -54,15 +55,23 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
         }`}
       >
         <h2 className="card-title text-3xl font-bold text-white">
-          {team.name}
+          {team.name || 'Daedalus Voting System'}
         </h2>
-        <a href="#" className="decoration-solid">
+        <Link
+          to="https://daedalus.codes/"
+          target="_blank"
+          className="decoration-solid"
+        >
           Visit site
-        </a>
+        </Link>
         <h5>Members:</h5>
-        {team.members.map((member) => (
-          <p key={member.id}>{member.username}</p>
-        ))}
+        <ul>
+          {team.members.map((member) => (
+            <li key={member.userId} className="p-1">
+              {member.username}
+            </li>
+          ))}
+        </ul>
 
         <div className="card-actions justify-center">
           {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
@@ -78,7 +87,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
               className="btn w-full bg-white text-[#11113A] hover:bg-[#11113A] hover:text-white"
               // Add the Vote logic here 👇
               disabled={hasVote}
-              onClick={(e) => handleVote(e)}
+              onClick={handleVote}
             >
               VOTE
             </button>
@@ -94,4 +103,4 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   )
 }
 
-export default ImageCard
+export default ImageCardAuth

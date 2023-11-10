@@ -1,9 +1,7 @@
-import HackathonAuth from '@/components/HackathonAuth'
-import HackathonNoAuth from '@/components/HackathonNoAuth'
-import { Hackathon, HackathonSchema } from '@/types/hackathon'
-import { SignedIn, SignedOut } from '@clerk/clerk-react'
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+
+import { HackathonSchema } from '@/types/hackathon'
+import HackathonAuth from '@/components/HackathonAuth'
 
 const Season1 = () => {
   const { data: hackathon } = useQuery({
@@ -27,12 +25,7 @@ const Season1 = () => {
       </div>
 
       {/* more stuff here */}
-      <SignedIn>
-        <HackathonAuth />
-      </SignedIn>
-      <SignedOut>
-        <HackathonNoAuth />
-      </SignedOut>
+      <HackathonAuth />
     </>
   )
 }
