@@ -1,16 +1,16 @@
-import { Daedalus } from '@/assets'
-import { Link, NavLink } from 'react-router-dom'
+import { Daedalus } from '@/assets';
 import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/clerk-react'
+   SignInButton,
+   SignedIn,
+   SignedOut,
+   UserButton
+} from '@clerk/clerk-react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div className="container mx-auto pt-0 md:pt-3 lg:pt-5">
-      <div className="navbar rounded-b-[20px] border-background-lighter bg-[#2020537e]  px-6 py-3 md:rounded-[25px] md:px-8 md:py-4 lg:rounded-[30px] lg:px-12 xl:px-24 ">
+      <div className="navbar rounded-b-[20px] border-2 border-[#39395B] bg-[#2020537e]  px-6 py-3 md:rounded-[25px] md:px-8 md:py-4 lg:rounded-[30px] lg:px-12 xl:px-24 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,8 +39,21 @@ const Navbar = () => {
               <li className="text-lg">
                 <NavLink to="/about">About Us</NavLink>
               </li>
-              <li className="text-lg">
-                <NavLink to="/hackathon">Hackathon</NavLink>
+              <li className="dropdown dropdown-end">
+               <label tabIndex={0}>
+                  <span>Hackathon</span>
+                  <svg className="hidden h-4 w-4 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+                     <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                  </svg>
+               </label>
+               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-2xl space-y-2 bg-background-darker border-2 border-[#39395B]" >
+                  <li>
+                     <NavLink to="/hackathon/season-1">Season 1</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/hackathon/season-2">Season 2</NavLink>
+                  </li>
+               </ul>
               </li>
             </ul>
           </div>
@@ -60,8 +73,31 @@ const Navbar = () => {
             <li className="text-2xl">
               <NavLink to="/about">About Us</NavLink>
             </li>
-            <li className="text-2xl">
-              <NavLink to="/hackathon">Hackathon</NavLink>
+            <li className="text-2xl dropdown dropdown-end">
+               {/* clickable */}
+               <label tabIndex={0}>
+                     <span>Hackathon</span>
+                     <svg className="hidden h-4 w-4 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+                        <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                     </svg>
+               </label>
+               <ul tabIndex={0} className="menu menu-lg dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-2xl space-y-2 bg-background-darker border-2 border-[#39395B]" >
+                  <li>
+                     <NavLink to="/hackathon/season-1">Season 1</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/hackathon/season-2">Season 2</NavLink>
+                  </li>
+               </ul>
+               
+              {/* hoverable */}
+              {/* <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
+                  <label tabIndex={0}>Hackathon </label>
+                  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 mt-4 shadow bg-background-darker border-2 border-[#39395B] rounded-box w-52 space-y-2 text-center">
+                     <li className='text-2xl'><NavLink to="/hackathon/season-1">Season 1</NavLink></li>
+                     <li className='text-2xl'><NavLink to="/hackathon/season-2">Season 2</NavLink></li>
+                  </ul>
+               </div> */}
             </li>
           </ul>
         </div>
