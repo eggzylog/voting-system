@@ -1,6 +1,7 @@
-import { Hackathon, HackathonSchema } from '@/types/hackathon'
-import { useQuery } from '@tanstack/react-query'
 import { createContext, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
+import { Hackathon, HackathonSchema } from '@/types/hackathon'
 
 const hackathonPlaceholder: Hackathon = {
   hackathonId: 0,

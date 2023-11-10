@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
-import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
-import { Team } from '@/types/team'
+import { Link } from 'react-router-dom'
+import { SignInButton, SignedOut } from '@clerk/clerk-react'
 
-const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
+import { Team } from '@/types/team'
+import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
+
+const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -30,13 +32,19 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
             {team.name}
           </span>
         </h2>
-        <a href="#" className="underline underline-offset-4">
+        <Link
+          to="https://daedalus.codes"
+          target="_blank"
+          className="underline underline-offset-4"
+        >
           Visit site
-        </a>
+        </Link>
         <h5>Members:</h5>
-        {team.members.map((member) => (
-          <p>{member.username}</p>
-        ))}
+        <ul>
+          {team.members.map((member) => (
+            <li key={member.userId}>{member.username}</li>
+          ))}
+        </ul>
 
         <div className="card-actions justify-center">
           {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
@@ -62,4 +70,4 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   )
 }
 
-export default ImageCard
+export default ImageCardNoAuth

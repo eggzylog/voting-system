@@ -1,5 +1,6 @@
-import { VoteContext } from '@/contexts/VoteContext'
 import { useContext } from 'react'
+
+import { VoteContext } from '@/contexts/VoteContext'
 
 export const useVote = () => {
   const context = useContext(VoteContext)

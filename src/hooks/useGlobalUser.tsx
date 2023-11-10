@@ -1,5 +1,6 @@
-import { UserGlobalContext } from '@/contexts/UserGlobalContext'
 import { useContext } from 'react'
+
+import { UserGlobalContext } from '@/contexts/UserGlobalContext'
 
 export const useGlobalUser = () => {
   const context = useContext(UserGlobalContext)

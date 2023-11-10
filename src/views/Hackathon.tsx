@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 const Hackathon = () => {
   return (
@@ -13,6 +13,7 @@ const Hackathon = () => {
           Hackathon Season 2
         </Link>
       </div>
+      <Outlet />
     </>
   )
 }

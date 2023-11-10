@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <div className="pb-6 pt-24 text-center">
+    <div className="flex justify-center gap-1 pb-6 pt-24 text-center max-sm:flex-col">
       <h5>
         &copy; {currentYear}{' '}
         <Link
@@ -14,8 +14,8 @@ const Footer = () => {
         >
           D'Rocketeers 🚀
         </Link>{' '}
-        All rights reserved
       </h5>
+      <span>All rights reserved</span>
     </div>
   )
 }
