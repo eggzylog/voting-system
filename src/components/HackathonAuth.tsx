@@ -1,9 +1,11 @@
-import { Team, TeamSchema } from '../types/team'
-
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
 import { useQuery } from '@tanstack/react-query'
-import ImageCard from '@/components/ImageCardAuth'
+
 import hack from '@/assets/png/hack.png'
+import { Team, TeamSchema } from '@/types/team'
 import HeightScreen from './HeightScreen'
+import ImageCardAuth from './ImageCardAuth'
+import ImageCardNoAuth from './ImageCardNoAuth'
 
 const Hackathon = () => {
   const {
@@ -14,11 +16,9 @@ const Hackathon = () => {
     queryKey: ['teams'],
     queryFn: async () => {
       const res = await fetch('/api/v1/hackathons/1/teams')
-      const data = await res.json()
+      const data = (await res.json()) as { teams: Team[] }
 
-      const teams: Team[] = data.teams.map((team: Team) =>
-        TeamSchema.parse(team)
-      )
+      const teams = data.teams.map((team) => TeamSchema.parse(team))
 
       return teams
     }
@@ -35,9 +35,10 @@ const Hackathon = () => {
         </div>
       </HeightScreen>
     )
-  // if (isTeamsLoading) return <div className="w-12 h-12 rounded-full animate-spin border-y-8 border-solid border-white border-t-transparent shadow-md"></div>
 
   if (isTeamsError) return 'An error has occurred: ' + isTeamsError.message
+
+  console.log(teams)
 
   return (
     <>
@@ -47,9 +48,20 @@ const Hackathon = () => {
 
       <div className="container mx-auto pt-5">
         <div className="grid grid-cols-12 gap-8 py-12">
-          {teams?.map((team) => (
-            <ImageCard key={team.teamId} idx={team.teamId} team={team} />
-          ))}
+          <SignedOut>
+            {teams?.map((team) => (
+              <ImageCardNoAuth
+                key={team.teamId}
+                idx={team.teamId}
+                team={team}
+              />
+            ))}
+          </SignedOut>
+          <SignedIn>
+            {teams?.map((team) => (
+              <ImageCardAuth key={team.teamId} idx={team.teamId} team={team} />
+            ))}
+          </SignedIn>
         </div>
       </div>
     </>
