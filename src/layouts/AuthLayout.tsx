@@ -4,13 +4,31 @@ import { Outlet } from 'react-router-dom'
 
 const AuthLayout = () => {
   return (
-    <div className="dark:bg-[#11113A] bg-blob bg-no-repeat">
-      <div className="container pt-5 mx-auto ">
-        <Navbar />
-        <Outlet />
-      </div>
-      <Footer />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <SignedIn>
+        <UserProvider>
+          <VoteProvider>
+            <div className="bg-blob dark:bg-[#11113A] bg-no-repeat bg-right">
+              <div className="container mx-auto min-h-screen pt-5">
+                <Navbar />
+                <Outlet />
+              </div>
+              <Footer />
+            </div>
+          </VoteProvider>
+        </UserProvider>
+      </SignedIn>
+
+      <SignedOut>
+        <div className="bg-blob dark:bg-[#11113A]">
+          <div className="container mx-auto min-h-screen pt-5">
+            <Navbar />
+            <Outlet />
+          </div>
+          <Footer />
+        </div>
+      </SignedOut>
+    </QueryClientProvider>
   )
 }
 
