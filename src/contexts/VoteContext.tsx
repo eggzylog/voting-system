@@ -28,7 +28,6 @@ export default function VoteProvider({
   })
 
   console.log('GLOBAL STATE (User has vote): ' + hasVote)
-
   return (
     <VoteContext.Provider value={{ hasVote, setHasVote }}>
       {children}
