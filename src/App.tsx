@@ -6,6 +6,10 @@ import HeightScreen from '@/components/HeightScreen'
 
 import { ClerkProvider, SignIn, SignUp } from '@clerk/clerk-react'
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import Season1 from '@/views/hackathon/Season-1'
+import Season2 from '@/views/hackathon/Season-2'
+import S1Layout from './layouts/hackathon/S1Layout'
+import S2Layout from './layouts/hackathon/S2Layout'
 
 const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY
 
@@ -22,7 +26,15 @@ function ClerkProviderWithRoutes() {
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/hackathon" element={<Hackathon />} />
+          <Route path="/hackathon" element={<Hackathon />}></Route>
+
+          <Route path="/hackathon/season-1" element={<S1Layout />}>
+            <Route index element={<Season1 />} />
+          </Route>
+
+          <Route path="/hackathon/season-2" element={<S2Layout />}>
+            <Route index element={<Season2 />} />
+          </Route>
         </Route>
         <Route
           path="/sign-in/*"

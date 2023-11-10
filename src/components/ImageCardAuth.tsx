@@ -13,7 +13,8 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   const handleVote: React.MouseEventHandler<HTMLButtonElement> = async () => {
-    const voteData: { userId: number; teamId: number } = {
+    const voteData: { hackathonId: number; userId: number; teamId: number } = {
+      hackathonId: 1,
       userId: user.userId,
       teamId: team.teamId
     }
@@ -30,7 +31,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       body: JSON.stringify(voteData)
     })
 
-    if (res.status == 201) setHasVote(true)
+    if (res.status == 200) setHasVote(true)
   }
 
   return (
@@ -60,7 +61,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
         </a>
         <h5>Members:</h5>
         {team.members.map((member) => (
-          <p key={member.id}>{member.user.username}</p>
+          <p key={member.id}>{member.username}</p>
         ))}
 
         <div className="card-actions justify-center">
@@ -83,6 +84,9 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
             </button>
 
             {hasVote && <p>Votes: {team.votes}</p>}
+            {hasVote && team.votePercentage != null && (
+              <p>Vote percentage: {team.votePercentage}</p>
+            )}
           </SignedIn>
         </div>
       </div>

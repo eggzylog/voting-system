@@ -1,16 +1,18 @@
-import HackathonWAuth from '@/components/HackathonwAuth'
-import HackathonNoAuth from '@/components/HackathonNoAuth'
-import { SignedIn, SignedOut } from '@clerk/clerk-react'
+import { Link } from 'react-router-dom'
 
 const Hackathon = () => {
   return (
     <>
-      <SignedIn>
-        <HackathonWAuth />
-      </SignedIn>
-      <SignedOut>
-        <HackathonNoAuth />
-      </SignedOut>
+      <div className="block">
+        <Link title="hackathon_season-1" to="/hackathon/season-1">
+          Hackathon Season 1
+        </Link>
+      </div>
+      <div className="block">
+        <Link title="hackathon_season-2" to="/hackathon/season-2">
+          Hackathon Season 2
+        </Link>
+      </div>
     </>
   )
 }
