@@ -42,7 +42,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
           {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
           <SignedOut>
             <SignInButton mode="modal" afterSignInUrl="/">
-              <button className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:outline hover:text-white">
+              <button className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline">
                 VOTE
               </button>
             </SignInButton>

@@ -1,11 +1,11 @@
-import { Daedalus } from '@/assets';
+import { Daedalus } from '@/assets'
 import {
-   SignInButton,
-   SignedIn,
-   SignedOut,
-   UserButton
-} from '@clerk/clerk-react';
-import { Link, NavLink } from 'react-router-dom';
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/clerk-react'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -40,20 +40,27 @@ const Navbar = () => {
                 <NavLink to="/about">About Us</NavLink>
               </li>
               <li className="dropdown dropdown-end">
-               <label tabIndex={0}>
+                <label tabIndex={0}>
                   <span>Hackathon</span>
-                  <svg className="hidden h-4 w-4 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
-                     <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                  <svg
+                    className="hidden h-4 w-4 fill-current opacity-60 sm:inline-block"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 2048 2048"
+                  >
+                    <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
                   </svg>
-               </label>
-               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-2xl space-y-2 bg-background-darker border-2 border-[#39395B]" >
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu dropdown-content rounded-box menu-sm z-[1] mt-3 w-52 space-y-2 border-2 border-[#39395B] bg-background-darker p-2 text-2xl shadow"
+                >
                   <li>
-                     <NavLink to="/hackathon/season-1">Season 1</NavLink>
+                    <NavLink to="/hackathon/season-1">Season 1</NavLink>
                   </li>
                   <li>
-                     <NavLink to="/hackathon/season-2">Season 2</NavLink>
+                    <NavLink to="/hackathon/season-2">Season 2</NavLink>
                   </li>
-               </ul>
+                </ul>
               </li>
             </ul>
           </div>
@@ -102,23 +109,44 @@ const Navbar = () => {
               >
                 Hackathon
               </NavLink> */}
-            <li className="text-2xl dropdown dropdown-end">
-               {/* clickable */}
-               <label tabIndex={0}>
-                     <span>Hackathon</span>
-                     <svg className="hidden h-4 w-4 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
-                        <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
-                     </svg>
-               </label>
-               <ul tabIndex={0} className="menu menu-lg dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-2xl space-y-2 bg-background-darker border-2 border-[#39395B]" >
-                  <li>
-                     <NavLink to="/hackathon/season-1">Season 1</NavLink>
-                  </li>
-                  <li>
-                     <NavLink to="/hackathon/season-2">Season 2</NavLink>
-                  </li>
-               </ul>
-               
+            <li className="dropdown dropdown-end text-2xl">
+              {/* clickable */}
+              <label tabIndex={0}>
+                <span>Hackathon</span>
+                <svg
+                  className="hidden h-4 w-4 fill-current opacity-60 sm:inline-block"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 2048 2048"
+                >
+                  <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                </svg>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu dropdown-content rounded-box menu-lg z-[1] mt-3 w-52 space-y-2 border-2 border-[#39395B] bg-background-darker p-2 text-2xl shadow"
+              >
+                <li>
+                  <NavLink
+                    to="/hackathon/season-1"
+                    className={({ isActive }) =>
+                      isActive ? 'bg-[#ffffffd2] font-bold text-[#11113A]' : ''
+                    }
+                  >
+                    Season 1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/hackathon/season-2"
+                    className={({ isActive }) =>
+                      isActive ? 'bg-[#ffffffd2] font-bold text-[#11113A]' : ''
+                    }
+                  >
+                    Season 2
+                  </NavLink>
+                </li>
+              </ul>
+
               {/* hoverable */}
               {/* <div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
                   <label tabIndex={0}>Hackathon </label>

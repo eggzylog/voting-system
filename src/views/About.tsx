@@ -1,10 +1,17 @@
-import HeightScreen from '@/components/HeightScreen'
+import { Link } from 'react-router-dom'
+import ProfileCard from '@/components/ProfileCard'
 
 const About = () => {
   return (
-    <HeightScreen>
-      <h2>About</h2>
-    </HeightScreen>
+    <>
+      <div className="container mx-auto mt-10 block">
+        <Link title="About" to="/about">
+          <div className='grid gap-10 grid-cols-3'>
+            <ProfileCard />
+          </div>
+        </Link>
+      </div>
+    </>
   )
 }
 
