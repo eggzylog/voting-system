@@ -1,10 +1,17 @@
-import HeightScreen from '../components/HeightScreen'
+import HackathonWAuth from '@/components/HackathonwAuth'
+import HackathonNoAuth from '@/components/HackathonNoAuth'
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 const Hackathon = () => {
   return (
-    <HeightScreen>
-      <h2>Hackathon</h2>
-    </HeightScreen>
+    <>
+      <SignedIn>
+        <HackathonWAuth />
+      </SignedIn>
+      <SignedOut>
+        <HackathonNoAuth />
+      </SignedOut>
+    </>
   )
 }
 
