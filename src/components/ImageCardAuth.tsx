@@ -50,11 +50,11 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
       </div>
 
       <div
-        className={`card-body justify-between bg-gradient-to-b from-[#1A1A48] to-[#06062c] text-center ${
+        className={`card-body justify-between bg-gradient-to-b from-[#1A1A48] to-[#06062c] text-center padding-top: bottom-5 ${
           !isHovered ? 'hidden' : ''
         }`}
       >
-        <h2 className="card-title text-3xl font-bold text-white">
+        <h2 className="card-title text-3xl font-bold text-white justify-center">
           {team.name || 'Daedalus Voting System'}
         </h2>
         <Link
