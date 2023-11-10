@@ -19,7 +19,7 @@ export default function AuthLayout({
         <UserProvider>
           <VoteProvider>
             <div className="bg-blob dark:bg-[#11113A] bg-no-repeat bg-right">
-              <div className="container mx-auto min-h-screen pt-5">
+              <div className="sec-dev mx-auto min-h-screen lg:pt-5 md:pt-3 pt-0">
                 <Navbar />
                 <Outlet />
               </div>

@@ -35,10 +35,12 @@ const Hackathon = () => {
         <img src={hack} alt="Hackathon Teams" className="w-1/3" />
       </div>
 
-      <div className="grid grid-cols-12 gap-8 py-12">
-        {teams?.map((team) => (
-          <ImageCardNoAuth key={team.teamId} idx={team.teamId} team={team} />
-        ))}
+      <div className='container mx-auto pt-5'>
+        <div className="grid grid-cols-12 gap-8 py-12">
+          {teams?.map((team) => (
+            <ImageCardNoAuth key={team.teamId} idx={team.teamId} team={team} />
+          ))}
+        </div>
       </div>
     </>
   )
