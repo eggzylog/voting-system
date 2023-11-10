@@ -1,7 +1,8 @@
-import { User } from '@/types/user'
+import { createContext, useState } from 'react'
 import { useUser } from '@clerk/clerk-react'
 import { useQuery } from '@tanstack/react-query'
-import { createContext, useState } from 'react'
+
+import { User } from '@/types/user'
 
 // placeholder
 const user_placeholder: User = {
@@ -13,7 +14,7 @@ const user_placeholder: User = {
   lastName: null,
   firstName: null,
   profileImageURL: null,
-  createdAt: new Date(Date.now()).toString()
+  createdAt: new Date(Date.now())
 }
 
 export type UserGlobalContextType = {

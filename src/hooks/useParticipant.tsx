@@ -1,5 +1,6 @@
-import { ParticipantContext } from '@/contexts/ParticipantContext'
 import { useContext } from 'react'
+
+import { ParticipantContext } from '@/contexts/ParticipantContext'
 
 export const useParticipant = () => {
   const context = useContext(ParticipantContext)

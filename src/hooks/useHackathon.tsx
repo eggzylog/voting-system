@@ -1,5 +1,6 @@
-import { HackathonContext } from '@/contexts/HackathonContext'
 import { useContext } from 'react'
+
+import { HackathonContext } from '@/contexts/HackathonContext'
 
 export const useHackathon = () => {
   const context = useContext(HackathonContext)

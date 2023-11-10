@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
-import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
-import { Team } from '@/types/team'
+import { Link } from 'react-router-dom'
+import { SignInButton, SignedOut } from '@clerk/clerk-react'
 
-const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
+import { Team } from '@/types/team'
+import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
+
+const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -28,13 +30,19 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
         <h2 className="card-title text-3xl font-bold text-white">
           Daedalus Voting System
         </h2>
-        <a href="#" className="decoration-solid">
+        <Link
+          to="https://daedalus.codes"
+          target="_blank"
+          className="decoration-solid"
+        >
           Visit site
-        </a>
+        </Link>
         <h5>Members:</h5>
-        {team.members.map((member) => (
-          <p>{member.username}</p>
-        ))}
+        <ul>
+          {team.members.map((member) => (
+            <li key={member.userId}>{member.username}</li>
+          ))}
+        </ul>
 
         <div className="card-actions justify-center">
           {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
@@ -45,19 +53,10 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
               </button>
             </SignInButton>
           </SignedOut>
-          <SignedIn>
-            <button
-              className="btn w-full bg-white text-[#11113A] hover:bg-[#11113A] hover:text-white"
-              // Add the Vote logic here 👇
-              onClick={() => console.log('vote iz clicked')}
-            >
-              VOTE
-            </button>
-          </SignedIn>
         </div>
       </div>
     </div>
   )
 }
 
-export default ImageCard
+export default ImageCardNoAuth

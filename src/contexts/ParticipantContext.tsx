@@ -1,8 +1,9 @@
+import { createContext, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
+import { UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { HackathonSchema } from '@/types/hackathon'
-import { UserSchema } from '@/types/user'
-import { useQuery } from '@tanstack/react-query'
-import { createContext, useState } from 'react'
 
 export type ParticipantContextType = {
   isParticipant: boolean
