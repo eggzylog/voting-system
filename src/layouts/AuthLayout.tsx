@@ -17,7 +17,7 @@ export default function AuthLayout() {
               <Navbar />
               <Outlet />
             </div>
-              <Footer />
+            <Footer />
           </div>
         </UserProvider>
       </SignedIn>
@@ -28,7 +28,7 @@ export default function AuthLayout() {
             <Navbar />
             <Outlet />
           </div>
-            <Footer />
+          <Footer />
         </div>
       </SignedOut>
     </QueryClientProvider>

@@ -10,7 +10,7 @@ import {
 const Navbar = () => {
   return (
     <div className="container mx-auto pt-0 md:pt-3 lg:pt-5">
-      <div className="navbar rounded-b-[20px] border-background-lighter bg-[#2020537e]  px-6 py-3 md:rounded-[25px] md:px-8 md:py-4 lg:rounded-[30px] lg:px-12 xl:px-24 ">
+      <div className="navbar rounded-b-[20px] border-background-lighter bg-[#2020537e] px-6  py-3 outline md:rounded-[25px] md:px-8 md:py-4 lg:rounded-[30px] lg:px-12 xl:px-24 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -55,25 +55,40 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal gap-16 px-[32px]">
             <li className="text-2xl">
-              <NavLink to="/"
-              className={({ isActive }) =>
-                isActive ? "text-white bg-inherit font-bold underline underline-offset-[15px]" : ""
-              }
-              >Home</NavLink>
-            </li>
-            <li className="text-2xl hover:underline underline-offset-[15px]">
-              <NavLink to="/about"
+              <NavLink
+                to="/"
                 className={({ isActive }) =>
-                isActive ? "text-white bg-inherit font-bold underline underline-offset-[15px]" : ""
-              }
-              >About Us</NavLink>
+                  isActive
+                    ? 'bg-inherit font-bold text-white underline underline-offset-[15px]'
+                    : ''
+                }
+              >
+                Home
+              </NavLink>
             </li>
-            <li className="text-2xl hover:underline underline-offset-[15px]">
-              <NavLink to="/hackathon"
+            <li className="text-2xl underline-offset-[15px] hover:underline">
+              <NavLink
+                to="/about"
                 className={({ isActive }) =>
-                isActive ? "text-white bg-inherit font-bold underline underline-offset-[15px]" : ""
-              }
-              >Hackathon</NavLink>
+                  isActive
+                    ? 'bg-inherit font-bold text-white underline underline-offset-[15px]'
+                    : ''
+                }
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li className="text-2xl underline-offset-[15px] hover:underline">
+              <NavLink
+                to="/hackathon"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'bg-inherit font-bold text-white underline underline-offset-[15px]'
+                    : ''
+                }
+              >
+                Hackathon
+              </NavLink>
             </li>
           </ul>
         </div>
