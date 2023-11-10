@@ -6,8 +6,8 @@ const Home = () => {
       <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-x-10 lg:grid-rows-5">
         <div className="relative col-span-1 row-span-1 grid place-content-end text-center md:text-right lg:row-span-3 lg:place-items-end">
           {/* <img src={Radial} className='absolute w-[7rem] left-40 top-14'></img> */}
-          <h3 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl">
-            Welcome to Daedalus
+          <h3 className="bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-6xl">
+            DAEDALUS' HACKATHON
           </h3>
           <p className="my-2 md:my-3 lg:my-5  lg:text-2xl ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
@@ -33,6 +33,7 @@ const Home = () => {
             className=" bottom-3 z-10 max-w-[15rem] md:max-w-full lg:absolute lg:max-w-full"
           />
         </div>
+
         <div className="grid text-center md:col-span-2 md:text-start lg:col-span-3">
           <h1 className="mb-3 mt-3 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-3xl font-bold text-transparent md:mt-0 md:text-4xl lg:text-5xl">
             HAPPENING NOW!
@@ -52,7 +53,7 @@ const Home = () => {
           <img
             src={Cube}
             alt="cube"
-            className="right-[-2rem] top-[-3rem] z-10 lg:absolute lg:max-w-[10rem]"
+            className="top-[-3rem] z-10 max-w-0 md:absolute md:right-0 md:max-w-[7rem] lg:absolute lg:right-[-2rem] lg:max-w-[10rem]"
           />
         </div>
       </div>

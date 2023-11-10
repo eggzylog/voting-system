@@ -54,9 +54,12 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
           !isHovered ? 'hidden' : ''
         }`}
       >
-        <h2 className="card-title text-3xl font-bold text-white">
-          {team.name || 'Daedalus Voting System'}
+        <h2 className="card-title flex justify-center text-3xl font-bold text-white">
+          <span className="block max-w-[15ch] overflow-hidden whitespace-nowrap">
+            {team.name || 'Daedalus Voting System'}
+          </span>
         </h2>
+
         <Link
           to="https://daedalus.codes/"
           target="_blank"
@@ -77,14 +80,14 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
           {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
           <SignedOut>
             <SignInButton mode="modal" afterSignInUrl="/">
-              <button className="btn w-full bg-white text-[#11113A] hover:bg-[#11113A] hover:text-white">
+              <button className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline">
                 VOTE
               </button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
             <button
-              className="btn w-full bg-white text-[#11113A] hover:bg-[#11113A] hover:text-white"
+              className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline"
               // Add the Vote logic here 👇
               disabled={hasVote}
               onClick={handleVote}
