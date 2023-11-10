@@ -12,7 +12,7 @@ const Hackathon = () => {
   } = useQuery({
     queryKey: ['teams'],
     queryFn: async () => {
-      const res = await fetch('/api/v1/teams')
+      const res = await fetch('/api/v1/hackathons/1/teams')
       const data = await res.json()
 
       const teams: Team[] = data.teams.map((team: Team) =>
