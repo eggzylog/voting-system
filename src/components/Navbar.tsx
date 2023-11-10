@@ -9,8 +9,8 @@ import {
 
 const Navbar = () => {
   return (
-    <div className='container mx-auto lg:pt-5 md:pt-3 pt-0'>
-      <div className="navbar lg:rounded-[30px] md:rounded-[25px] rounded-b-[20px]  border-background-lighter bg-[#2020537e] px-6 py-3 md:px-8 md:py-4 lg:px-12 xl:px-24 ">
+    <div className="container mx-auto pt-0 md:pt-3 lg:pt-5">
+      <div className="navbar rounded-b-[20px] border-background-lighter bg-[#2020537e]  px-6 py-3 md:rounded-[25px] md:px-8 md:py-4 lg:rounded-[30px] lg:px-12 xl:px-24 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,7 +48,7 @@ const Navbar = () => {
             <img
               src={Daedalus}
               alt="Daedalus Logo"
-              className="lg:w-64 md:w-56"
+              className="md:w-56 lg:w-64"
             />
           </Link>
         </div>

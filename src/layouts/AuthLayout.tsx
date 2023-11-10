@@ -12,23 +12,23 @@ export default function AuthLayout() {
     <QueryClientProvider client={queryClient}>
       <SignedIn>
         <UserProvider>
-            <div className="bg-blob dark:bg-[#11113A] bg-no-repeat bg-right">
-              <div className="sec-dev mx-auto min-h-screen lg:pt-5 md:pt-3 pt-0">
-                <Navbar />
-                <Outlet />
-              </div>
-              <Footer />
+          <div className="bg-blob bg-right bg-no-repeat dark:bg-[#11113A]">
+            <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
+              <Navbar />
+              <Outlet />
             </div>
+              <Footer />
+          </div>
         </UserProvider>
       </SignedIn>
 
       <SignedOut>
-        <div className="bg-blob dark:bg-[#11113A]">
-          <div className="container mx-auto min-h-screen pt-5">
+        <div className="bg-blob bg-right bg-no-repeat dark:bg-[#11113A]">
+          <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
             <Navbar />
             <Outlet />
           </div>
-          <Footer />
+            <Footer />
         </div>
       </SignedOut>
     </QueryClientProvider>
