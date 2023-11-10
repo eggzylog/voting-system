@@ -13,7 +13,7 @@ const user_placeholder: User = {
   lastName: null,
   firstName: null,
   profileImageURL: null,
-  createdAt: new Date(Date.now())
+  createdAt: new Date(Date.now()).toString()
 }
 
 export type UserGlobalContextType = {
@@ -40,11 +40,11 @@ export default function UserProvider({
       if (res.status == 200) {
         const data = await res.json()
         setUser(data)
+        console.log(data)
+        return data
       }
     }
   })
-
-  console.log('Global user: ' + user.userId)
 
   return (
     <UserGlobalContext.Provider value={{ user, setUser }}>

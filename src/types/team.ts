@@ -1,18 +1,15 @@
 import { z } from 'zod'
 import { UserSchema } from './user'
-
-const MemberSchema = z.object({
-  id: z.number(),
-  user: UserSchema
-})
+import { ZDate } from './date'
 
 export const TeamSchema = z.object({
   teamId: z.number(),
   name: z.string(),
-  members: z.array(MemberSchema),
+  hackathonId: z.number(),
+  members: z.array(UserSchema),
   votes: z.number(),
-  createdAt: z.string().transform((str) => new Date(str))
+  votePercentage: z.number().nullable(),
+  createdAt: ZDate
 })
 
-export type Participant = z.infer<typeof MemberSchema>
 export type Team = z.infer<typeof TeamSchema>

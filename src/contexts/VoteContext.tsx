@@ -20,9 +20,10 @@ export default function VoteProvider({
   useQuery({
     queryKey: ['hasVote', { user }],
     queryFn: async () => {
-      const res = await fetch(`/api/v1/votes?user=${user.userId}`)
+      const res = await fetch(`/api/v1/votes?hackathon=1&user=${user.userId}`)
       const data = await res.json()
       setHasVote(() => data.hasVote)
+      return data.hasVote
     }
   })
 

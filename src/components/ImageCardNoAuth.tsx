@@ -33,7 +33,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
         </a>
         <h5>Members:</h5>
         {team.members.map((member) => (
-          <p>{member.user.username}</p>
+          <p>{member.username}</p>
         ))}
 
         <div className="card-actions justify-center">
