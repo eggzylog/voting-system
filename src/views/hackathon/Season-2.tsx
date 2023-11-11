@@ -1,3 +1,4 @@
+import { HackathonTeams } from '@/assets'
 import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
