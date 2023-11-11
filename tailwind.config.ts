@@ -19,5 +19,11 @@ export default {
       }
     }
   },
-  plugins: [daisyui]
+  plugins: [
+   daisyui,
+   require('tailwind-scrollbar')({ nocompatible: true }),
+   ],
+   variants: {
+      scrollbar: ['rounded']
+  }
 } satisfies Config
