@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { SignInButton, SignedOut } from '@clerk/clerk-react'
 
 import { Team } from '@/types/team'
 import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
@@ -33,7 +33,7 @@ const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
           </span>
         </h2>
         <Link
-          to="https://daedalus.codes"
+          to="https://daedalus.codes" // replace with teams' project link
           target="_blank"
           className="underline underline-offset-4"
         >
@@ -47,7 +47,6 @@ const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
         </ul>
 
         <div className="card-actions justify-center">
-          {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
           <SignedOut>
             <SignInButton mode="modal" afterSignInUrl="/">
               <button className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline">

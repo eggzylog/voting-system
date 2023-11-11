@@ -3,9 +3,9 @@ import { useQuery } from '@tanstack/react-query'
 
 import hack from '@/assets/png/hack.png'
 import { Team, TeamSchema } from '@/types/team'
-import HeightScreen from './HeightScreen'
 import ImageCardAuth from './ImageCardAuth'
 import ImageCardNoAuth from './ImageCardNoAuth'
+import Loading from './Loading'
 
 const Hackathon = () => {
   const {
@@ -24,17 +24,7 @@ const Hackathon = () => {
     }
   })
 
-  if (isTeamsLoading)
-    return (
-      <HeightScreen>
-        <div className="flex">
-          <div className="relative">
-            <div className="absolute h-12 w-12 rounded-full border-8 border-dashed border-gray-200"></div>
-            <div className="absolute h-12 w-12 animate-spin rounded-full border-8 border-dashed border-purple-500 border-t-transparent"></div>
-          </div>
-        </div>
-      </HeightScreen>
-    )
+  if (isTeamsLoading) return <Loading />
 
   if (isTeamsError) return 'An error has occurred: ' + isTeamsError.message
 

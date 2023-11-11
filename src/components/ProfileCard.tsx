@@ -5,7 +5,7 @@ const ProfileCard = ({ user }: { user: User }) => {
     <>
       <div className="col-span-1 grid w-full grid-cols-3 grid-rows-3 gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] p-3 text-white  outline outline-2 outline-[#7979c436]">
         <img
-          src={user.profileImageURL}
+          src={user.profileImageURL || 'https://picsum.photos/200/300'} // or any default image placeholder
           alt="avatar"
           className="col-span-1 row-span-3 h-full w-full rounded-xl bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 p-1"
         />

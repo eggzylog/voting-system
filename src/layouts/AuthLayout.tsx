@@ -6,29 +6,29 @@ import UserProvider from '@/contexts/UserGlobalContext'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+const RootLayout = () => {
+  return (
+    <div className="bg-blob bg-right bg-no-repeat dark:bg-[#11113A]">
+      <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
+        <Navbar />
+        <Outlet />
+      </div>
+      <Footer />
+    </div>
+  )
+}
+
 export default function AuthLayout() {
   const queryClient = new QueryClient()
   return (
     <QueryClientProvider client={queryClient}>
       <SignedIn>
         <UserProvider>
-          <div className="bg-blob bg-right bg-no-repeat dark:bg-[#11113A]">
-            <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
-              <Navbar />
-              <Outlet />
-            </div>
-            <Footer />
-          </div>
+          <RootLayout />
         </UserProvider>
       </SignedIn>
       <SignedOut>
-        <div className="bg-blob bg-right bg-no-repeat dark:bg-[#11113A]">
-          <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
-            <Navbar />
-            <Outlet />
-          </div>
-          <Footer />
-        </div>
+        <RootLayout />
       </SignedOut>
     </QueryClientProvider>
   )
