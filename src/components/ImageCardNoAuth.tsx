@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SignInButton, SignedOut } from '@clerk/clerk-react'
+import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import { Team } from '@/types/team'
 import daedalus from '@/assets/png/DAEDALUS-WHITE.png'

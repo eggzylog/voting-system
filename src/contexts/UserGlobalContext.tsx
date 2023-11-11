@@ -14,7 +14,7 @@ const user_placeholder: User = {
   lastName: null,
   firstName: null,
   profileImageURL: null,
-  createdAt: new Date(Date.now())
+  createdAt: new Date(Date.now()).toString()
 }
 
 export type UserGlobalContextType = {

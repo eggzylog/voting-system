@@ -8,10 +8,10 @@ const hackathonPlaceholder: Hackathon = {
   name: '',
   season: 0,
   registrationDeadline: new Date(Date.now()),
-  eventStart: new Date(Date.now()),
-  eventEnd: new Date(Date.now()),
+  eventStart: new Date(Date.now()).toString(),
+  eventEnd: new Date(Date.now()).toString(),
   description: '',
-  createdAt: new Date(Date.now()),
+  createdAt: new Date(Date.now()).toString(),
   createdBy: null,
   participants: []
 }

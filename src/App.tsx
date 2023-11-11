@@ -25,13 +25,11 @@ function ClerkProviderWithRoutes() {
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/hackathon" element={<Hackathon />}>
-            <Route path="season-1" element={<S1Layout />}>
-              <Route index element={<Season1 />} />
-            </Route>
-            <Route path="season-2" element={<S2Layout />}>
-              <Route index element={<Season2 />} />
-            </Route>
+          <Route path="/hackathon/season-1" element={<S1Layout />}>
+            <Route index element={<Season1 />} />
+          </Route>
+          <Route path="/hackathon/season-2" element={<S2Layout />}>
+            <Route index element={<Season2 />} />
           </Route>
         </Route>
       </Routes>
