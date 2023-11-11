@@ -7,6 +7,8 @@ export default {
     extend: {
       backgroundImage: {
         'blob': "url('./src/assets/svg/blob.svg')",
+        'radial1': "radial-gradient( farthest-side at bottom left, rgba(118, 19, 148, 0.459), transparent)",
+        'radial2': "radial-gradient( farthest-corner at top right, rgba(41, 157, 165, 0.589), transparent 35rem)",
       },
       backgroundPosition: {
         'right-farthest': '10% 50%',
