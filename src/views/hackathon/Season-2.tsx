@@ -1,4 +1,4 @@
-import hack from '@/assets/png/hack.png'
+import { HackathonTeams } from '@/assets'
 import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
@@ -34,7 +34,7 @@ const Season2 = () => {
     <div>
       <div className="my-9 flex flex-col items-center">
         <img
-          src={hack}
+          src={HackathonTeams}
           alt="Hackathon Season 2 Participants"
           className="w-1/3"
         />
