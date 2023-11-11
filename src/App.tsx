@@ -1,14 +1,14 @@
-import AuthLayout from '@/layouts/AuthLayout'
-import About from '@/views/About'
-import Hackathon from '@/views/Hackathon'
-import Home from '@/views/Home'
-
 import { ClerkProvider } from '@clerk/clerk-react'
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
-import Season1 from '@/views/hackathon/Season-1'
-import Season2 from '@/views/hackathon/Season-2'
+
+import AuthLayout from '@/layouts/AuthLayout'
 import S1Layout from './layouts/hackathon/S1Layout'
 import S2Layout from './layouts/hackathon/S2Layout'
+import About from '@/views/About'
+import Home from '@/views/Home'
+import Season1 from '@/views/hackathon/Season-1'
+import Season2 from '@/views/hackathon/Season-2'
+import NotFound from '@/components/NotFound'
 
 const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY
 
@@ -32,6 +32,7 @@ function ClerkProviderWithRoutes() {
             <Route index element={<Season2 />} />
           </Route>
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </ClerkProvider>
   )
