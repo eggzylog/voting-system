@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import hack from '@/assets/png/hack.png'
 
 import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
+import ProfileCard from '@/components/ProfileCard'
 
 const Season2 = () => {
   const globalUser = useGlobalUser()
@@ -13,17 +14,11 @@ const Season2 = () => {
   console.log(user)
   console.log(hackathon)
 
-  const [isParticipant, setIsParticipant] = useState(
-    hackathon.participants?.includes(user)
-  )
-
-  // const participantUser: User | undefined = hackathon.participants?.find(
-  //   (participant: User) => {
-  //     return participant.userId == user.userId
-  //   }
-  // )
-
-  // if (participantUser != undefined) setIsParticipant(true)
+  const isUserInHackathonParticipants = () => {
+    return hackathon.participants?.some(
+      (participant) => participant.userId === user.userId
+    )
+  }
 
   const handlePreRegister = async () => {
     const res = await fetch('api/v1/hackathons/2/participants', {
@@ -33,28 +28,31 @@ const Season2 = () => {
       },
       body: JSON.stringify({ userId: user.userId })
     })
-
-    if (res.status == 200) setIsParticipant(true)
   }
 
   return (
-    <>
-      <p>{hackathon?.name}</p>
-      <p>{hackathon?.description}</p>
-      {/* more stuff here */}
-
-      {isParticipant ? (
-        hackathon?.participants?.map((participant: User) => (
-          <div className="h-5 bg-white">
-            <p> Participant: {participant.username}</p>
-          </div>
-        ))
-      ) : (
-        <button className="bg-white" onClick={handlePreRegister}>
-          Hello
-        </button>
-      )}
-    </>
+    <div>
+      <div className="my-9 flex flex-col items-center">
+        <img
+          src={hack}
+          alt="Hackathon Season 2 Participants"
+          className="w-1/3"
+        />
+      </div>
+      <div className="mx-auto w-3/4 flex-col justify-center">
+        <div className="grid grid-cols-2 gap-10">
+          {isUserInHackathonParticipants() ? (
+            hackathon?.participants?.map((participant: User) => (
+              <ProfileCard user={participant} />
+            ))
+          ) : (
+            <button className="bg-white" onClick={handlePreRegister}>
+              Register here
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
   )
 }
 

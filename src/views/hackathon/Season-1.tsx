@@ -19,12 +19,6 @@ const Season1 = () => {
   console.log(hackathon)
   return (
     <>
-      <div>
-        <p>{hackathon?.name}</p>
-        <p>{hackathon?.description}</p>
-      </div>
-
-      {/* more stuff here */}
       <HackathonAuth />
     </>
   )
