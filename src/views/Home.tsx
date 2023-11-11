@@ -21,7 +21,11 @@ const Home = () => {
           </p>
         </div>
         <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
-          <img src={Hero} alt="hero" className="max-w-xs md:w-full lg:max-w-full" />
+          <img
+            src={Hero}
+            alt="hero"
+            className="max-w-xs md:w-full lg:max-w-full"
+          />
         </div>
         <Link
           to="/hackathon/season-1"

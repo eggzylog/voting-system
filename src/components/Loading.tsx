@@ -1,4 +1,4 @@
-import HeightScreen from "./HeightScreen"
+import HeightScreen from './HeightScreen'
 
 const Loading = () => {
   return (
