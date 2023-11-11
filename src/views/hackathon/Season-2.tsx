@@ -1,5 +1,4 @@
 import hack from '@/assets/png/hack.png'
-
 import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
@@ -28,6 +27,7 @@ const Season2 = () => {
       },
       body: JSON.stringify({ userId: user.userId })
     })
+    console.log(res) // what to do with this
   }
 
   return (

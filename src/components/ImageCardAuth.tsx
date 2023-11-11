@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
+import { SignedIn } from '@clerk/clerk-react'
 
 import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
 import { Team } from '@/types/team'
@@ -56,12 +56,12 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
       >
         <h2 className="card-title flex justify-center text-3xl font-bold text-white">
           <span className="block max-w-[15ch] overflow-hidden whitespace-nowrap">
-            {team.name || 'Daedalus Voting System'}
+            {team.name}
           </span>
         </h2>
 
         <Link
-          to="https://daedalus.codes/"
+          to="https://daedalus.codes/" // replace with teams' project link
           target="_blank"
           className="decoration-solid"
         >

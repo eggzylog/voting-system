@@ -1,6 +1,6 @@
-import { Hero, Radial, Man, Cube } from '@/assets'
-import Hackathon from '@/components/HackathonAuth'
 import { Link } from 'react-router-dom'
+
+import { Hero, Man, Cube } from '@/assets'
 const Home = () => {
   return (
     <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-32">
@@ -21,7 +21,7 @@ const Home = () => {
           </p>
         </div>
         <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
-          <img src={Hero} alt="" className="max-w-xs md:w-full lg:max-w-full" />
+          <img src={Hero} alt="hero" className="max-w-xs md:w-full lg:max-w-full" />
         </div>
         <Link
           to="/hackathon/season-1"
