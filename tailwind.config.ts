@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'blob': "url('./src/assets/svg/blob.svg')",
+        'blob': "url('/blob.svg')",
       },
       backgroundPosition: {
         'right-farthest': '10% 50%',
