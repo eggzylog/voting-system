@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Hero, Man, Cube } from '@/assets'
 const Home = () => {
   return (
-    <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-32">
+    <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-24">
       {/* Hero Section */}
       <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-x-10 lg:grid-rows-5">
         <div className="">
@@ -20,7 +20,7 @@ const Home = () => {
             <b> #Daedalus #HackathonSeason1 #VoteForInnovation </b> 
           </p>
         </div>
-        <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
+        <div className="col-span-1 row-span-1 grid place-content-center justify-items-center md:row-span-3 lg:row-span-5">
           <img
             src={Hero}
             alt="hero"
@@ -31,7 +31,7 @@ const Home = () => {
           to="/hackathon/season-1"
           className="btn row-span-1 mt-3 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-4 lg:mt-5 lg:w-3/12 lg:px-12"
         >
-          VOTE HERE
+          VOTE NOW!
         </Link>
       </div>
 

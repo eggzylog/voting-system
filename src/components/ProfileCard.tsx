@@ -9,8 +9,8 @@ const ProfileCard = ({ user }: { user: User }) => {
           alt="avatar"
           className="col-span-1 row-span-3 h-full w-full rounded-xl bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 p-1"
         />
-        <h1 className="col-span-2 row-span-1 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-3xl font-bold text-transparent">
-          {user.username}
+        <h1 className="col-span-2 row-span-1 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text lg:text-3xl md:text-2xl text-xl font-bold text-transparent">
+          {user.username.toUpperCase()}
         </h1>
         <h2 className="col-span-2 row-span-1 text-xl">Developer</h2>
         <button className="col-span-2 w-full rounded-xl bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 ">
