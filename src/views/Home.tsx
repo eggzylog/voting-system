@@ -6,18 +6,18 @@ const Home = () => {
     <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-32">
       {/* Hero Section */}
       <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-x-10 lg:grid-rows-5">
-        <div className="relative col-span-1 row-span-1 grid place-content-end text-center md:text-right lg:row-span-3 lg:place-items-end">
+        <div className="">
           {/* <img src={Radial} className='absolute w-[7rem] left-40 top-14'></img> */}
           <h3 className="bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-6xl">
-            DAEDALUS' HACKATHON
+            DAEDALUS HACKATHON
           </h3>
-          <p className="my-2 md:my-3 lg:my-5  lg:text-2xl ">
-            🚀 Ready to witness innovation at its peak? 🌟 Join us in the
-            ultimate showdown of brilliance at Hackathon Season 1! 🏆 Your vote
-            is the game-changer, propelling the most ingenious team to victory.
-            Embrace the excitement, be the catalyst of change, and let's shape
-            the future together! 🚀 Vote now and be part of the revolution! 🚀
-            #HackathonSeason1 #VoteForInnovation 🚀
+          <p className="my-2 md:my-3 lg:my-5  lg:text-2xl text-left text-justify md:text-xl">
+            <h3>  💥 Ready to witness innovation at its peak? </h3>
+            <h3>  🔔 Join us in the ultimate showdown of brilliance at Hackathon Season 1!</h3> 
+            <h3>  📢 Your vote is a game changer, propelling an ingenious team to victory. Be the catalyst of change and shape the future together.</h3>
+            <h3>  ✍ Vote now and be part of the revolution!</h3>
+            <br></br>
+            <b> #Daedalus #HackathonSeason1 #VoteForInnovation </b> 
           </p>
         </div>
         <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
@@ -29,7 +29,7 @@ const Home = () => {
         </div>
         <Link
           to="/hackathon/season-1"
-          className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-3/12 lg:px-12"
+          className="btn row-span-1 mt-3 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-4 lg:mt-5 lg:w-3/12 lg:px-12"
         >
           VOTE HERE
         </Link>
@@ -52,13 +52,20 @@ const Home = () => {
           <h2 className="mb-3 text-xl font-bold italic text-white md:text-2xl">
             Hackathon Season 2
           </h2>
-          <p className="md:text-xl">
-            🚀 Dive into the Daedalus Hackathon! 🌐 1 week, 3-person dream
-            teams, and endless web app possibilities! 🔥 MERN, LAMPP, or your
-            own secret stack, it's a web stack free-for-all! 🚀 Learn, code, and
-            conquer with expert advice, all for FREE! 🎉 Cash prizes, domain
-            names, and a week of coding bliss await! Don't miss out—let the
-            hacking begin! 💻🏆 #DaedalusHackathon #CodeDreams #WebStackWarfare
+          <p className="lg:text-2xl md:text-xl">
+            <h3> 🎯 Dive into the Daedalus Hackathon! </h3>
+            <h3> 📅 1 week, 3-person dream
+            teams, and endless web app possibilities! </h3>
+            <h3> 💠 MERN, LAMPP, or your
+            own secret stack, it's a web stack free-for-all! </h3>
+            <h3> 💡 Learn, code, and
+            conquer with expert advice, all for FREE! </h3>
+            <h3> 🏆  Cash prizes, domain
+            names, and a week of coding bliss await! </h3> 
+            <h3> 📌   Don't miss out, let the
+            hacking begin! </h3>  
+            <br></br>
+            <b> #DaedalusHackathon #CodeDreams #WebStackWarfare </b>
           </p>
           <Link
             to="hackathon/season-2"
