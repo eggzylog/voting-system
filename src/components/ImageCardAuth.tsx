@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SignedIn } from '@clerk/clerk-react'
 
-import daedalus from '@/assets/png/DAEDALUS-WHITE.png'
+import { DaedalusWhite } from '@/assets'
 import { Team } from '@/types/team'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useVote } from '@/hooks/useVote'
@@ -45,7 +45,7 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
       }`}
     >
       <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#04bfd87f] to-[#11113A] outline-[#39395B]">
-        <img src={daedalus} alt="daedalus" className="h-1/2 w-1/2" />
+        <img src={DaedalusWhite} alt="Daedalus White Logo" className="h-1/2 w-1/2" />
         <h1 className="mt-3 font-bold text-white lg:text-3xl">D'Rocketeers</h1>
       </div>
 

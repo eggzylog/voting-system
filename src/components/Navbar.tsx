@@ -1,11 +1,12 @@
-import { Daedalus } from '@/assets'
+import { Link, NavLink } from 'react-router-dom'
 import {
   SignInButton,
   SignedIn,
   SignedOut,
   UserButton
 } from '@clerk/clerk-react'
-import { Link, NavLink } from 'react-router-dom'
+
+import { Daedalus } from '@/assets'
 
 const Navbar = () => {
   return (
