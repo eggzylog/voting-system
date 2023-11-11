@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Hero, Man, Cube } from '@/assets'
 const Home = () => {
   return (
-    <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-32">
+    <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-24">
       {/* Hero Section */}
       <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-x-10 lg:grid-rows-5">
         <div className="relative col-span-1 row-span-1 grid place-content-end text-center md:text-right lg:row-span-3 lg:place-items-end">
@@ -20,7 +20,7 @@ const Home = () => {
             #HackathonSeason1 #VoteForInnovation 🚀
           </p>
         </div>
-        <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
+        <div className="col-span-1 row-span-1 grid place-content-center justify-items-center md:row-span-3 lg:row-span-5">
           <img
             src={Hero}
             alt="hero"
@@ -29,9 +29,9 @@ const Home = () => {
         </div>
         <Link
           to="/hackathon/season-1"
-          className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-3/12 lg:px-12"
+          className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-auto lg:px-12"
         >
-          VOTE HERE
+          VOTE NOW!
         </Link>
       </div>
 

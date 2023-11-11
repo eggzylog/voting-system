@@ -9,11 +9,15 @@ import Footer from '@/components/Footer'
 const RootLayout = () => {
   return (
     <div className="bg-blob bg-right bg-no-repeat dark:bg-[#11113A]">
-      <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
-        <Navbar />
-        <Outlet />
+      <div className="bg-radial2">
+        <div className='bg-radial1'>
+        <div className="sec-dev mx-auto min-h-screen pt-0 md:pt-3 lg:pt-5">
+          <Navbar />
+          <Outlet />
+        </div>
+        <Footer />
+        </div>
       </div>
-      <Footer />
     </div>
   )
 }
