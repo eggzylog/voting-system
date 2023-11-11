@@ -1,4 +1,6 @@
 import { Hero, Radial, Man, Cube } from '@/assets'
+import Hackathon from '@/components/HackathonAuth'
+import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-32">
@@ -10,18 +12,23 @@ const Home = () => {
             DAEDALUS' HACKATHON
           </h3>
           <p className="my-2 md:my-3 lg:my-5  lg:text-2xl ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-            delectus molestiae sit modi ut at velit, voluptatibus illum sequi
-            aut aperiam dolore fugit beatae asperiores earum adipisci laboriosam
-            eum enim.
+            🚀 Ready to witness innovation at its peak? 🌟 Join us in the
+            ultimate showdown of brilliance at Hackathon Season 1! 🏆 Your vote
+            is the game-changer, propelling the most ingenious team to victory.
+            Embrace the excitement, be the catalyst of change, and let's shape
+            the future together! 🚀 Vote now and be part of the revolution! 🚀
+            #HackathonSeason1 #VoteForInnovation 🚀
           </p>
         </div>
         <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
           <img src={Hero} alt="" className="max-w-xs md:w-full lg:max-w-full" />
         </div>
-        <button className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-3/12 lg:px-12">
-          Register
-        </button>
+        <Link
+          to="/hackathon/season-1"
+          className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-3/12 lg:px-12"
+        >
+          VOTE HERE
+        </Link>
       </div>
 
       {/* Announcement Section */}
@@ -42,14 +49,19 @@ const Home = () => {
             Hackathon Season 2
           </h2>
           <p className="md:text-xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-            quo impedit autem nam, doloremque unde, itaque labore expedita
-            fugiat distinctio iusto iure commodi, obcaecati illum dolore dicta
-            aspernatur eos sint.
+            🚀 Dive into the Daedalus Hackathon! 🌐 1 week, 3-person dream
+            teams, and endless web app possibilities! 🔥 MERN, LAMPP, or your
+            own secret stack, it's a web stack free-for-all! 🚀 Learn, code, and
+            conquer with expert advice, all for FREE! 🎉 Cash prizes, domain
+            names, and a week of coding bliss await! Don't miss out—let the
+            hacking begin! 💻🏆 #DaedalusHackathon #CodeDreams #WebStackWarfare
           </p>
-          <button className="btn row-span-1 mt-3 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-4 lg:mt-5 lg:w-3/12 lg:px-12">
-            Explore
-          </button>
+          <Link
+            to="hackathon/season-2"
+            className="btn row-span-1 mt-3 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-4 lg:mt-5 lg:w-3/12 lg:px-12"
+          >
+            Register
+          </Link>
           <img
             src={Cube}
             alt="cube"

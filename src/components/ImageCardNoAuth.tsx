@@ -55,15 +55,6 @@ const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
               </button>
             </SignInButton>
           </SignedOut>
-          <SignedIn>
-            <button
-              className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline"
-              // Add the Vote logic here 👇
-              onClick={() => console.log('vote iz clicked')}
-            >
-              VOTE
-            </button>
-          </SignedIn>
         </div>
       </div>
     </div>

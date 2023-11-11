@@ -10,7 +10,7 @@ import { useVote } from '@/hooks/useVote'
 const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
   const { user } = useGlobalUser()
 
-  const { hasVote, setHasVote } = useVote()
+  const { votedFor, setVotedFor } = useVote()
 
   const [isHovered, setIsHovered] = useState(false)
 
@@ -32,7 +32,7 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
       body: JSON.stringify(voteData)
     })
 
-    if (res.status == 200) setHasVote(true)
+    if (res.status == 200) setVotedFor(team.teamId)
   }
 
   return (
@@ -77,26 +77,18 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
         </ul>
 
         <div className="card-actions justify-center">
-          {/* If the user is SignedOut, have the button show the SignIn modal when clicked */}
-          <SignedOut>
-            <SignInButton mode="modal" afterSignInUrl="/">
-              <button className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline">
-                VOTE
-              </button>
-            </SignInButton>
-          </SignedOut>
           <SignedIn>
             <button
               className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline"
               // Add the Vote logic here 👇
-              disabled={hasVote}
+              disabled={votedFor != null}
               onClick={handleVote}
             >
               VOTE
             </button>
 
-            {hasVote && <p>Votes: {team.votes}</p>}
-            {hasVote && team.votePercentage != null && (
+            {votedFor != null && <p>Votes: {team.votes}</p>}
+            {votedFor != null && team.votePercentage != null && (
               <p>Vote percentage: {team.votePercentage}</p>
             )}
           </SignedIn>
