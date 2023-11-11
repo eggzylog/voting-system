@@ -1,4 +1,6 @@
 import { Hero, Radial, Man, Cube } from '@/assets'
+import Hackathon from '@/components/HackathonAuth'
+import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-32">
@@ -19,9 +21,12 @@ const Home = () => {
         <div className="col-span-1 row-span-1 grid justify-items-center md:row-span-3 lg:row-span-5">
           <img src={Hero} alt="" className="max-w-xs md:w-full lg:max-w-full" />
         </div>
-        <button className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-3/12 lg:px-12">
+        <Link
+          to="/hackaathon-season-2"
+          className="btn row-span-1 mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-3/12 lg:px-12"
+        >
           Register
-        </button>
+        </Link>
       </div>
 
       {/* Announcement Section */}

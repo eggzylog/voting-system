@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 
 export type VoteContextType = {
-  hasVote: boolean
-  setHasVote: React.Dispatch<React.SetStateAction<boolean>>
+  votedFor: number | null
+  setVotedFor: React.Dispatch<React.SetStateAction<number | null>>
 }
 
 export const VoteContext = createContext<VoteContextType | null>(null)
@@ -16,21 +16,22 @@ export default function VoteProvider({
   children: React.ReactNode
 }) {
   const { user } = useGlobalUser()
-  const [hasVote, setHasVote] = useState(false)
+  const [votedFor, setVotedFor] = useState<number | null>(null)
 
   useQuery({
-    queryKey: ['hasVote', { user }],
+    queryKey: ['votedFor', { votedFor, user }],
     queryFn: async () => {
       const res = await fetch(`/api/v1/votes?hackathon=1&user=${user.userId}`)
       const data = await res.json()
-      setHasVote(() => data.hasVote)
-      return data.hasVote
+      if (res.status != 200) return null
+      setVotedFor(() => data.votedFor)
+      return data.votedFor
     }
   })
 
-  console.log('GLOBAL STATE (User has vote): ' + hasVote)
+  console.log('[GLOBAL STATE] User voted for TeamID: ' + votedFor)
   return (
-    <VoteContext.Provider value={{ hasVote, setHasVote }}>
+    <VoteContext.Provider value={{ votedFor, setVotedFor }}>
       {children}
     </VoteContext.Provider>
   )
