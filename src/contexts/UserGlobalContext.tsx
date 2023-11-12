@@ -14,7 +14,7 @@ const user_placeholder: User = {
   lastName: null,
   firstName: null,
   profileImageURL: null,
-  createdAt: new Date(Date.now()).toString()
+  createdAt: new Date(Date.now())
 }
 
 export type UserGlobalContextType = {
@@ -35,7 +35,7 @@ export default function UserProvider({
   const [user, setUser] = useState(user_placeholder)
 
   useQuery({
-    queryKey: ['userId'],
+    queryKey: ['userId', { authUser }],
     queryFn: async () => {
       const res = await fetch(`api/v1/users/` + authUser.user!.username)
       if (res.status == 200) {
