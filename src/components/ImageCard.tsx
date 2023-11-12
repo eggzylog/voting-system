@@ -99,9 +99,6 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
             </button>
 
             {votedFor != null && <p>Votes: {team.votes}</p>}
-            {votedFor != null && team.votePercentage != null && (
-              <p>Vote percentage: {team.votePercentage}</p>
-            )}
           </SignedIn>
         </div>
       </div>
