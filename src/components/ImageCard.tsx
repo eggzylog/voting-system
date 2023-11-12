@@ -1,12 +1,39 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SignInButton, SignedOut } from '@clerk/clerk-react'
+import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import { DaedalusWhite } from '@/assets'
 import { Team } from '@/types/team'
+import { useGlobalUser } from '@/hooks/useGlobalUser'
+import { useVote } from '@/hooks/useVote'
 
-const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
+const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
+  const { user } = useGlobalUser()
+
+  const { votedFor, setVotedFor } = useVote()
+
   const [isHovered, setIsHovered] = useState(false)
+
+  const handleVote = async () => {
+    const voteData: { hackathonId: number; userId: number; teamId: number } = {
+      hackathonId: 1,
+      userId: user.userId,
+      teamId: team.teamId
+    }
+
+    console.log('User ID: ' + user.userId)
+    console.log('Team ID: ' + team.teamId)
+
+    const res = await fetch('api/v1/votes', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(voteData)
+    })
+
+    if (res.status == 200) setVotedFor(team.teamId)
+  }
 
   return (
     <div
@@ -18,7 +45,11 @@ const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
       }`}
     >
       <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#04bfd87f] to-[#11113A] outline-[#39395B]">
-        <img src={DaedalusWhite} alt="Daedalus White Logo" className="h-1/2 w-1/2" />
+        <img
+          src={DaedalusWhite}
+          alt="Daedalus White Logo"
+          className="h-1/2 w-1/2"
+        />
         <h1 className="mt-3 font-bold text-white lg:text-3xl">D'Rocketeers</h1>
       </div>
 
@@ -32,17 +63,20 @@ const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
             {team.name}
           </span>
         </h2>
+
         <Link
-          to="https://daedalus.codes" // replace with teams' project link
+          to="https://daedalus.codes/" // replace with teams' project link
           target="_blank"
-          className="underline underline-offset-4"
+          className="decoration-solid"
         >
           Visit site
         </Link>
         <h5>Members:</h5>
         <ul>
           {team.members.map((member) => (
-            <li key={member.userId}>{member.username}</li>
+            <li key={member.userId} className="p-1">
+              {member.username}
+            </li>
           ))}
         </ul>
 
@@ -54,10 +88,22 @@ const ImageCardNoAuth = ({ idx, team }: { idx: number; team: Team }) => {
               </button>
             </SignInButton>
           </SignedOut>
+          <SignedIn>
+            <button
+              className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline"
+              // Add the Vote logic here 👇
+              disabled={votedFor != null}
+              onClick={handleVote}
+            >
+              VOTE
+            </button>
+
+            {/* {votedFor != null && <p>Votes: {team.votes}</p>} */}
+          </SignedIn>
         </div>
       </div>
     </div>
   )
 }
 
-export default ImageCardNoAuth
+export default ImageCard

@@ -1,8 +1,10 @@
+import { HackathonTeams } from '@/assets'
 import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
 import ProfileCard from '@/components/ProfileCard'
 import { Participants } from '@/assets'
+import RegistrationForm from '@/components/RegistrationForm'
 
 const Season2 = () => {
   const globalUser = useGlobalUser()
@@ -19,17 +21,6 @@ const Season2 = () => {
     )
   }
 
-  const handlePreRegister = async () => {
-    const res = await fetch('api/v1/hackathons/2/participants', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({ userId: user.userId })
-    })
-    console.log(res) // what to do with this
-  }
-
   return (
     <div>
       <div className="my-9 flex flex-col items-center">
@@ -39,16 +30,14 @@ const Season2 = () => {
           className="w-3/6"
         />
       </div>
-      <div className="md:mx-auto md:px-0 px-5 container flex-col justify-center">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+      <div className="container flex-col justify-center px-5 md:mx-auto md:px-0">
+        <div className="grid grid-cols-1 lg:gap-10 md:gap-5 gap-3 md:grid-cols-2 lg:grid-cols-6">
           {isUserInHackathonParticipants() ? (
             hackathon?.participants?.map((participant: User) => (
               <ProfileCard user={participant} />
             ))
           ) : (
-            <button className="bg-white" onClick={handlePreRegister}>
-              Register here
-            </button>
+            <RegistrationForm userId={user.userId} />
           )}
         </div>
       </div>
