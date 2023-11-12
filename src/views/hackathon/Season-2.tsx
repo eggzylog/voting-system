@@ -4,6 +4,7 @@ import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
 import ProfileCard from '@/components/ProfileCard'
 import { Participants } from '@/assets'
+import RegistrationForm from '@/components/RegistrationForm'
 
 const Season2 = () => {
   const globalUser = useGlobalUser()
@@ -18,17 +19,6 @@ const Season2 = () => {
     return hackathon.participants?.some(
       (participant) => participant.userId === user.userId
     )
-  }
-
-  const handlePreRegister = async () => {
-    const res = await fetch('api/v1/hackathons/2/participants', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({ userId: user.userId })
-    })
-    console.log(res) // what to do with this
   }
 
   return (
@@ -47,9 +37,7 @@ const Season2 = () => {
               <ProfileCard user={participant} />
             ))
           ) : (
-            <button className="bg-white" onClick={handlePreRegister}>
-              Register here
-            </button>
+            <RegistrationForm userId={ user.userId }/>
           )}
         </div>
       </div>

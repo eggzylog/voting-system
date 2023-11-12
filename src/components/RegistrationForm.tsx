@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { CompMan, Cube, FloatMan, Polygon } from '@/assets'
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ userId }: { userId: number }) => {
   const [isClicked, setIsClicked] = useState(false)
   const frontEndRating = useState(0)
   const backEndRating = useState(0)
   const uiUxRating = useState(0)
 
-  const handleClick = (value, category) => {
+  const handleClick = (value: any, category: any) => {
     console.log(`Selected rating for ${category}: ${value}`)
     setIsClicked(!isClicked)
 
@@ -21,7 +21,7 @@ const RegistrationForm = () => {
     })
   }
 
-  const renderRatingButtons = (category, rating) => {
+  const renderRatingButtons = (category: any, rating: any) => {
     const ratingButtons = []
     for (let i = 1; i <= 5; i++) {
       ratingButtons.push(
@@ -37,10 +37,21 @@ const RegistrationForm = () => {
     return ratingButtons
   }
 
+  const handlePreRegister = async () => {
+    const res = await fetch('api/v1/hackathons/2/participants', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ userId: userId })
+    })
+    console.log(res) 
+  }
+
   return (
     <div className="col-span-4 col-start-2 row-span-3 grid grid-cols-4 gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] text-center outline outline-2 outline-[#7979c436] lg:p-8">
       <div className="col-span-2">
-        <form action="submit" method="post">
+        <form action="submit" method="post" onSubmit={ handlePreRegister }>
           <h3 className="mb-4 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-3xl">
             REGISTRATION FORM
           </h3>
@@ -73,7 +84,6 @@ const RegistrationForm = () => {
             type="submit"
             className="btn mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-full lg:px-12"
           >
-            {' '}
             REGISTER
           </button>
         </form>
