@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
-import { CompMan, Cube, FloatMan, Polygon } from '@/assets'
+import { useState } from 'react'
+import { CompMan } from '@/assets'
 
 const RegistrationForm = ({ userId }: { userId: number }) => {
   const [isClicked, setIsClicked] = useState(false)
-  const frontEndRating = useState(0)
-  const backEndRating = useState(0)
-  const uiUxRating = useState(0)
 
   const handleClick = (value: any, category: any) => {
     console.log(`Selected rating for ${category}: ${value}`)
@@ -65,19 +62,19 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
           <div>
             <p className="text-xl font-bold text-white">Front-End Skill</p>
             <div className="my-4 grid grid-cols-5 gap-2 font-bold">
-              {renderRatingButtons('front-end', frontEndRating)}
+              {renderRatingButtons('front-end')}
             </div>
           </div>
           <div>
             <p className="text-xl font-bold text-white">Back-End Skill</p>
             <div className="my-4 grid grid-cols-5 gap-2 font-bold">
-              {renderRatingButtons('back-end', backEndRating)}
+              {renderRatingButtons('back-end')}
             </div>
           </div>
           <div>
             <p className="text-xl font-bold text-white">UI/UX Skill</p>
             <div className="my-4 grid grid-cols-5 gap-2 font-bold">
-              {renderRatingButtons('ui-ux', uiUxRating)}
+              {renderRatingButtons('ui-ux')}
             </div>
           </div>
           <button

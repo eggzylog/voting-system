@@ -1,4 +1,3 @@
-import { HackathonTeams } from '@/assets'
 import { User, UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useHackathon } from '@/hooks/useHackathon'
@@ -38,7 +37,7 @@ const Season2 = () => {
             ))
           ) : (
             <RegistrationForm userId={user.userId} />
-          )}
+          )} 
         </div>
       </div>
     </div>

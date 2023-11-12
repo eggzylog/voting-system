@@ -14,7 +14,7 @@ const Home = () => {
           <ul className="my-2 flex flex-col  text-justify gap-1 md:my-3 md:text-xl lg:my-5 lg:text-2xl">
             
             <p>
-          <span class="font-bold">W</span>elcome to our hackathon voting system! We are a dedicated team passionate about fostering innovation, collaboration, and creativity in the hackathon community.
+          <span className="font-bold">W</span>elcome to our hackathon voting system! We are a dedicated team passionate about fostering innovation, collaboration, and creativity in the hackathon community.
 </p> 
             <br />
             <li>
