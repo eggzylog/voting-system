@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+    { "source": "/api/:path*", "destination": "http://178.128.20.38:8080/api/:path*" },
+    { "source": "/hackathon/api/:path*", "destination": "http://178.128.20.38:8080/api/:path*" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
+
+
