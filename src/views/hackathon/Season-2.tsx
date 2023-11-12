@@ -40,8 +40,8 @@ const Season2 = () => {
           className="w-3/6"
         />
       </div>
-      <div className="md:mx-auto md:px-0 px-5 container flex-col justify-center">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+      <div className="container flex-col justify-center px-5 md:mx-auto md:px-0">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {isUserInHackathonParticipants() ? (
             hackathon?.participants?.map((participant: User) => (
               <ProfileCard user={participant} />

@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .rate {
-  @apply btn text-lg hover:text-white col-span-1 hover:bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 font-bold border-background-lighter bg-[#2020537e] outline outline-2 outline-[#7979c436] hover:outline-white after:bg-white
+  @apply btn col-span-1 border-background-lighter bg-[#2020537e] from-cyan-300 via-purple-500 to-blue-500 text-lg font-bold outline outline-2 outline-[#7979c436] after:bg-white hover:bg-gradient-to-r hover:text-white hover:outline-white;
 }
 
-.clicked{
-  @apply text-lg bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-white 
+.clicked {
+  @apply bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-lg text-white;
 }
