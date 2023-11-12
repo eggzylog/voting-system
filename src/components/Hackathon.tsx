@@ -43,7 +43,9 @@ const Hackathon = () => {
         </div>
       </div>
 
-      <Billboard />
+      <div className='container mx-auto'>
+        <Billboard />
+      </div>
 
       <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-24">
         <div className="container-full relative mx-2 mt-10 grid grid-cols-1 rounded-[25px] bg-[#2020537e] p-5 outline md:mt-20 md:grid-cols-4 md:gap-5 md:p-10 lg:mt-72 lg:gap-10">

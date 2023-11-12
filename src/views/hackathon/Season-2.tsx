@@ -31,13 +31,13 @@ const Season2 = () => {
         />
       </div>
       <div className="container flex-col justify-center px-5 md:mx-auto md:px-0">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 lg:gap-10 md:gap-5 gap-3 md:grid-cols-2 lg:grid-cols-6">
           {isUserInHackathonParticipants() ? (
             hackathon?.participants?.map((participant: User) => (
               <ProfileCard user={participant} />
             ))
           ) : (
-            <RegistrationForm userId={ user.userId }/>
+            <RegistrationForm userId={user.userId} />
           )}
         </div>
       </div>
