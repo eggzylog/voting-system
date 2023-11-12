@@ -4,6 +4,7 @@ import { Cube, HackathonTeams, Man } from '@/assets'
 import { Team, TeamSchema } from '@/types/team'
 import ImageCard from '@/components/ImageCard'
 import Loading from '@/components/Loading'
+import Billboard from '@/components/Billboard'
 
 const Hackathon = () => {
   const {
@@ -40,6 +41,10 @@ const Hackathon = () => {
             <ImageCard key={team.teamId} idx={team.teamId} team={team} />
           ))}
         </div>
+      </div>
+
+      <div className='container mx-auto'>
+        <Billboard />
       </div>
 
       <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-24">

@@ -21,7 +21,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
     })
   }
 
-  const renderRatingButtons = (category: any, rating: any) => {
+  const renderRatingButtons = (category: string) => {
     const ratingButtons = []
     for (let i = 1; i <= 5; i++) {
       ratingButtons.push(
@@ -45,13 +45,13 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
       },
       body: JSON.stringify({ userId: userId })
     })
-    console.log(res) 
+    console.log(res)
   }
 
   return (
-    <div className="col-span-4 col-start-2 row-span-3 grid grid-cols-4 gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] text-center outline outline-2 outline-[#7979c436] lg:p-8">
-      <div className="col-span-2">
-        <form action="submit" method="post" onSubmit={ handlePreRegister }>
+    <div className="row-span-3 grid gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] text-center outline outline-2 outline-[#7979c436] md:p-6 lg:col-span-4 md:col-span-2 sm:grid-rows-2 grid-rows-[_1fr,25rem] lg:grid-rows-none lg:col-start-2 lg:grid-cols-4 lg:p-8 p-4">
+      <div className="md:col-span-1 lg:col-span-2">
+        <form action="submit" method="post" onSubmit={handlePreRegister}>
           <h3 className="mb-4 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-3xl">
             REGISTRATION FORM
           </h3>
@@ -82,7 +82,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
           </div>
           <button
             type="submit"
-            className="btn mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:w-full lg:px-12"
+            className="btn mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto w-full lg:px-12"
           >
             REGISTER
           </button>
@@ -90,14 +90,14 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
       </div>
 
       {/* Image */}
-      <div className="relative col-span-2">
+      <div className="relative lg:col-span-2 grid place-items-center">
         {/* <img src={FloatMan} alt="" />
         <img src={Polygon} alt="" className='w-1/4 absolute right-0 top-[-3rem]'/>
         <img src={Cube} alt="" className='w-1/4 absolute left-28 bottom-0' /> */}
         <img
           src={CompMan}
           alt=""
-          className="absolute w-full lg:bottom-[-2rem]"
+          className="absolute lg:w-full md:w-2/3 sm:w-5/6 md:bottom-[-1rem] lg:bottom-[-2rem]"
         />
       </div>
     </div>
