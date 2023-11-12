@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { HackathonSchema } from '@/types/hackathon'
-import HackathonAuth from '@/components/HackathonAuth'
+import Hackathon from '@/components/Hackathon'
 
 const Season1 = () => {
   const { data: hackathon } = useQuery({
@@ -19,7 +19,7 @@ const Season1 = () => {
   console.log(hackathon)
   return (
     <>
-      <HackathonAuth />
+      <Hackathon />
     </>
   )
 }

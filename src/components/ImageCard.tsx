@@ -7,7 +7,7 @@ import { Team } from '@/types/team'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useVote } from '@/hooks/useVote'
 
-const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
+const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   const { user } = useGlobalUser()
 
   const { votedFor, setVotedFor } = useVote()
@@ -109,4 +109,4 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
   )
 }
 
-export default ImageCardAuth
+export default ImageCard

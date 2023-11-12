@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import { Cube, HackathonTeams, Man } from '@/assets'
 import { Team, TeamSchema } from '@/types/team'
-import ImageCardAuth from '@/components/ImageCardAuth'
+import ImageCard from '@/components/ImageCard'
 import Loading from '@/components/Loading'
 
 const Hackathon = () => {
@@ -37,7 +37,7 @@ const Hackathon = () => {
       <div className="container mx-auto pt-5">
         <div className="grid grid-cols-12 gap-8 py-12">
           {teams?.map((team) => (
-            <ImageCardAuth key={team.teamId} idx={team.teamId} team={team} />
+            <ImageCard key={team.teamId} idx={team.teamId} team={team} />
           ))}
         </div>
       </div>
