@@ -5,20 +5,27 @@ const Home = () => {
   return (
     <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-24">
       {/* Hero Section */}
-      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-x-10 lg:grid-rows-5">
-        <div className="">
+      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-x-10 lg:grid-rows-4">
+        <div className="relative col-span-1 row-span-1 grid place-content-end text-center md:text-left lg:row-span-3 lg:place-items-end">
           {/* <img src={Radial} className='absolute w-[7rem] left-40 top-14'></img> */}
           <h3 className="bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-6xl">
             DAEDALUS HACKATHON
           </h3>
-          <p className="my-2 md:my-3 lg:my-5  lg:text-2xl text-left text-justify md:text-xl">
-            <h3>  💥 Ready to witness innovation at its peak? </h3>
-            <h3>  🔔 Join us in the ultimate showdown of brilliance at Hackathon Season 1!</h3> 
-            <h3>  📢 Your vote is a game changer, propelling an ingenious team to victory. Be the catalyst of change and shape the future together.</h3>
-            <h3>  ✍ Vote now and be part of the revolution!</h3>
-            <br></br>
-            <b> #Daedalus #HackathonSeason1 #VoteForInnovation </b> 
-          </p>
+          <ul className="my-2 flex flex-col gap-1 md:my-3 md:text-xl lg:my-5 lg:text-2xl">
+            <li> 💥 Ready to witness innovation at its peak? </li>
+            <li>
+              🔔 Join us in the ultimate showdown of brilliance at Hackathon
+              Season 1!
+            </li>
+            <li>
+              📢 Your vote is a game-changer, propelling an ingenious team to
+              victory. Be the catalyst of change and shape the future together.
+            </li>
+            <li> ✍ Vote now and be part of the revolution!</li>
+            <li className="mt-8">
+              <b> #Daedalus #HackathonSeason1 #VoteForInnovation </b>
+            </li>
+          </ul>
         </div>
         <div className="col-span-1 row-span-1 grid place-content-center justify-items-center md:row-span-3 lg:row-span-5">
           <img
@@ -52,21 +59,26 @@ const Home = () => {
           <h2 className="mb-3 text-xl font-bold italic text-white md:text-2xl">
             Hackathon Season 2
           </h2>
-          <p className="lg:text-2xl md:text-xl">
-            <h3> 🎯 Dive into the Daedalus Hackathon! </h3>
-            <h3> 📅 1 week, 3-person dream
-            teams, and endless web app possibilities! </h3>
-            <h3> 💠 MERN, LAMPP, or your
-            own secret stack, it's a web stack free-for-all! </h3>
-            <h3> 💡 Learn, code, and
-            conquer with expert advice, all for FREE! </h3>
-            <h3> 🏆  Cash prizes, domain
-            names, and a week of coding bliss await! </h3> 
-            <h3> 📌   Don't miss out, let the
-            hacking begin! </h3>  
-            <br></br>
-            <b> #DaedalusHackathon #CodeDreams #WebStackWarfare </b>
-          </p>
+          <ul className="flex flex-col gap-1 md:text-xl lg:text-2xl">
+            <li> 🎯 Dive into the Daedalus Hackathon! </li>
+            <li>
+              📅 1 week, 3-person dream teams, and endless web apppossibilities!
+            </li>
+            <li>
+              💠 MERN, LAMPP, or your own secret stack, it's a web stack
+              free-for-all!
+            </li>
+            <li>
+              💡 Learn, code, and conquer with expert advice, all for FREE!
+            </li>
+            <li>
+              🏆 Cash prizes, domain names, and a week of coding bliss await!
+            </li>
+            <li> 📌 Don't miss out, let the hacking begin! </li>
+            <li className="mt-8">
+              <b> #DaedalusHackathon #CodeDreams #WebStackWarfare </b>
+            </li>
+          </ul>
           <Link
             to="hackathon/season-2"
             className="btn row-span-1 mt-3 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-4 lg:mt-5 lg:w-3/12 lg:px-12"

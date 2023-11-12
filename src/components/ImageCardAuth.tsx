@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SignedIn } from '@clerk/clerk-react'
+import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import { DaedalusWhite } from '@/assets'
 import { Team } from '@/types/team'
@@ -81,6 +81,13 @@ const ImageCardAuth = ({ idx, team }: { idx: number; team: Team }) => {
         </ul>
 
         <div className="card-actions justify-center">
+          <SignedOut>
+            <SignInButton mode="modal" afterSignInUrl="/">
+              <button className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline">
+                VOTE
+              </button>
+            </SignInButton>
+          </SignedOut>
           <SignedIn>
             <button
               className="btn w-full bg-white text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline"

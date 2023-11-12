@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import HeightScreen from './HeightScreen'
+import HeightScreen from '@/components/HeightScreen'
 
 const NotFound = () => {
   const navigate = useNavigate()
