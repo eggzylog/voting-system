@@ -60,7 +60,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
   return (
     <div className="row-span-3 grid grid-rows-[_1fr,25rem] gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] p-4 text-center outline outline-2 outline-[#7979c436] sm:grid-rows-2 md:col-span-2 md:p-6 lg:col-span-4 lg:col-start-2 lg:grid-cols-4 lg:grid-rows-none lg:p-8">
       <div className="md:col-span-1 lg:col-span-2">
-        <form action="submit" method="post" onSubmit={handlePreRegister}>
+        <form onSubmit={handlePreRegister}>
           <h3 className="mb-4 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-3xl">
             REGISTRATION FORM
           </h3>
