@@ -23,7 +23,9 @@ export default function VoteProvider({
   useQuery({
     queryKey: ['votedFor', { votedFor, user }],
     queryFn: async () => {
-      const res = await fetch(`/api/${apiVersion}/votes?hackathon=1&user=${user.userId}`)
+      const res = await fetch(
+        `/api/${apiVersion}/votes?hackathon=1&user=${user.userId}`
+      )
       const data = await res.json()
       if (!res.ok) return null
       setVotedFor(() => data.votedFor)

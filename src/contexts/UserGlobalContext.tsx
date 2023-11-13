@@ -39,7 +39,9 @@ export default function UserProvider({
   useQuery({
     queryKey: ['userId', { authUser }],
     queryFn: async () => {
-      const res = await fetch(`api/${apiVersion}/users/${authUser.user!.username}`)
+      const res = await fetch(
+        `api/${apiVersion}/users/${authUser.user!.username}`
+      )
       if (res.ok) {
         const data = await res.json()
         setUser(data)
