@@ -3,7 +3,7 @@ import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import VoteProvider from '@/contexts/VoteContext'
 
-export default function S1Layout() {
+const S1Layout = () => {
   return (
     <>
       <SignedIn>
@@ -17,3 +17,5 @@ export default function S1Layout() {
     </>
   )
 }
+
+export default S1Layout
