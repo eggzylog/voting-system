@@ -6,6 +6,8 @@ import ImageCard from '@/components/ImageCard'
 import Loading from '@/components/Loading'
 import Billboard from '@/components/Billboard'
 
+const apiVersion = import.meta.env.VITE_API_VERSION
+
 const Hackathon = () => {
   const {
     isLoading: isTeamsLoading,
@@ -14,7 +16,7 @@ const Hackathon = () => {
   } = useQuery({
     queryKey: ['teams'],
     queryFn: async () => {
-      const res = await fetch('/api/v1/hackathons/1/teams')
+      const res = await fetch(`/api/${apiVersion}/hackathons/1/teams`)
       const data = (await res.json()) as { teams: Team[] }
 
       const teams = data.teams.map((team) => TeamSchema.parse(team))
@@ -43,7 +45,7 @@ const Hackathon = () => {
         </div>
       </div>
 
-      <div className='container mx-auto'>
+      <div className="container mx-auto">
         <Billboard />
       </div>
 

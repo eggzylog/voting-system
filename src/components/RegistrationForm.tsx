@@ -1,5 +1,13 @@
-import React, { useState } from 'react'
-import { CompMan, Cube, FloatMan, Polygon } from '@/assets'
+import { useState } from 'react'
+
+import {
+  CompMan,
+  // Cube,
+  // FloatMan,
+  // Polygon
+} from '@/assets'
+
+const apiVersion = import.meta.env.VITE_API_VERSION
 
 const RegistrationForm = ({ userId }: { userId: number }) => {
   const [isClicked, setIsClicked] = useState(false)
@@ -38,7 +46,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
   }
 
   const handlePreRegister = async () => {
-    const res = await fetch('api/v1/hackathons/2/participants', {
+    const res = await fetch(`api/${apiVersion}/hackathons/2/participants`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -4,8 +4,11 @@ import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import { DaedalusWhite } from '@/assets'
 import { Team } from '@/types/team'
+import { VoteData } from '@/types/voteData'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { useVote } from '@/hooks/useVote'
+
+const apiVersion = import.meta.env.VITE_API_VERSION
 
 const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   const { user } = useGlobalUser()
@@ -15,7 +18,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   const handleVote = async () => {
-    const voteData: { hackathonId: number; userId: number; teamId: number } = {
+    const voteData: VoteData = {
       hackathonId: 1,
       userId: user.userId,
       teamId: team.teamId
@@ -24,7 +27,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
     console.log('User ID: ' + user.userId)
     console.log('Team ID: ' + team.teamId)
 
-    const res = await fetch('api/v1/votes', {
+    const res = await fetch(`/api/${apiVersion}/votes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -32,7 +35,7 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
       body: JSON.stringify(voteData)
     })
 
-    if (res.status == 200) setVotedFor(team.teamId)
+    if (res.ok) setVotedFor(team.teamId)
   }
 
   return (
@@ -97,8 +100,6 @@ const ImageCard = ({ idx, team }: { idx: number; team: Team }) => {
             >
               VOTE
             </button>
-
-            {/* {votedFor != null && <p>Votes: {team.votes}</p>} */}
           </SignedIn>
         </div>
       </div>

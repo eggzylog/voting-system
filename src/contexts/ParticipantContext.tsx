@@ -5,6 +5,8 @@ import { UserSchema } from '@/types/user'
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 import { HackathonSchema } from '@/types/hackathon'
 
+const apiVersion = import.meta.env.VITE_API_VERSION
+
 export type ParticipantContextType = {
   isParticipant: boolean
   setIsParticipant: React.Dispatch<React.SetStateAction<boolean>>
@@ -27,8 +29,8 @@ export default function ParticipantProvider({
   useQuery({
     queryKey: ['hackathon', { isParticipant }],
     queryFn: async () => {
-      const res = await fetch('api/v1/hackathons/1')
-      if (res.status == 200) {
+      const res = await fetch(`/api/${apiVersion}/hackathons/1`)
+      if (res.ok) {
         const data = await res.json()
         const parsedData = HackathonSchema.parse(data)
         if (parsedData.participants?.includes(user)) setIsParticipant(true)
