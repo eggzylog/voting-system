@@ -2,13 +2,16 @@ import { useQuery } from '@tanstack/react-query'
 
 import { HackathonSchema } from '@/types/hackathon'
 import Hackathon from '@/components/Hackathon'
+import Loading from '@/components/Loading'
+
+const apiVersion = import.meta.env.VITE_API_VERSION
 
 const Season1 = () => {
-  const { data: hackathon } = useQuery({
+  const { data: hackathon, isLoading } = useQuery({
     queryKey: ['hackathon'],
     queryFn: async () => {
-      const res = await fetch('api/v1/hackathons/1')
-      if (res.status == 200) {
+      const res = await fetch(`/api/${apiVersion}/hackathons/1`)
+      if (res.ok) {
         const data = await res.json()
         console.log(data)
         return HackathonSchema.parse(data)
@@ -16,7 +19,10 @@ const Season1 = () => {
     }
   })
 
+  if (isLoading) return <Loading />
+
   console.log(hackathon)
+
   return (
     <>
       <Hackathon />

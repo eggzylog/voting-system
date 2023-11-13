@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { Hero, Man, Cube } from '@/assets'
+
 const Home = () => {
   return (
     <div className="container mx-auto px-5 pt-5 md:pt-16 lg:pt-24">

@@ -16,29 +16,35 @@ if (!clerkPubKey) {
   throw new Error('Missing Publishable Key')
 }
 
-function ClerkProviderWithRoutes() {
+const RoutesElements = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<AuthLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/hackathon/season-1" element={<S1Layout />}>
+          <Route index element={<Season1 />} />
+        </Route>
+        <Route path="/hackathon/season-2" element={<S2Layout />}>
+          <Route index element={<Season2 />} />
+        </Route>
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  )
+}
+
+const ClerkProviderWithRoutes = () => {
   const navigate = useNavigate()
 
   return (
     <ClerkProvider publishableKey={clerkPubKey} navigate={(to) => navigate(to)}>
-      <Routes>
-        <Route path="/" element={<AuthLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/hackathon/season-1" element={<S1Layout />}>
-            <Route index element={<Season1 />} />
-          </Route>
-          <Route path="/hackathon/season-2" element={<S2Layout />}>
-            <Route index element={<Season2 />} />
-          </Route>
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <RoutesElements />
     </ClerkProvider>
   )
 }
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <ClerkProviderWithRoutes />

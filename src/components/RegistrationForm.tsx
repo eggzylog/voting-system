@@ -1,10 +1,21 @@
 import { useState } from 'react'
-import { CompMan } from '@/assets'
+
+import {
+  CompMan
+  // Cube,
+  // FloatMan,
+  // Polygon
+} from '@/assets'
+
+const apiVersion = import.meta.env.VITE_API_VERSION
 
 const RegistrationForm = ({ userId }: { userId: number }) => {
   const [isClicked, setIsClicked] = useState(false)
+  const frontEndRating = 0
+  const backEndRating = 0
+  const uiUxRating = 0
 
-  const handleClick = (value: any, category: any) => {
+  const handleClick = (value: number, category: string) => {
     console.log(`Selected rating for ${category}: ${value}`)
     setIsClicked(!isClicked)
 
@@ -18,7 +29,8 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
     })
   }
 
-  const renderRatingButtons = (category: string) => {
+  const renderRatingButtons = (category: string, rating: number) => {
+    console.log(rating)
     const ratingButtons = []
     for (let i = 1; i <= 5; i++) {
       ratingButtons.push(
@@ -35,7 +47,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
   }
 
   const handlePreRegister = async () => {
-    const res = await fetch('api/v1/hackathons/2/participants', {
+    const res = await fetch(`api/${apiVersion}/hackathons/2/participants`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -46,7 +58,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
   }
 
   return (
-    <div className="row-span-3 grid gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] text-center outline outline-2 outline-[#7979c436] md:p-6 lg:col-span-4 md:col-span-2 sm:grid-rows-2 grid-rows-[_1fr,25rem] lg:grid-rows-none lg:col-start-2 lg:grid-cols-4 lg:p-8 p-4">
+    <div className="row-span-3 grid grid-rows-[_1fr,25rem] gap-x-5 rounded-2xl border-background-lighter bg-[#2020537e] p-4 text-center outline outline-2 outline-[#7979c436] sm:grid-rows-2 md:col-span-2 md:p-6 lg:col-span-4 lg:col-start-2 lg:grid-cols-4 lg:grid-rows-none lg:p-8">
       <div className="md:col-span-1 lg:col-span-2">
         <form onSubmit={handlePreRegister}>
           <h3 className="mb-4 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-3xl">
@@ -79,7 +91,7 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
           </div>
           <button
             type="submit"
-            className="btn mt-5 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto w-full lg:px-12"
+            className="btn mt-5 w-full bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 text-[#11113A] hover:bg-[#ffffff2c] hover:text-white hover:outline md:mt-0 lg:ms-auto lg:px-12"
           >
             REGISTER
           </button>
@@ -87,14 +99,14 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
       </div>
 
       {/* Image */}
-      <div className="relative lg:col-span-2 grid place-items-center">
+      <div className="relative grid place-items-center lg:col-span-2">
         {/* <img src={FloatMan} alt="" />
         <img src={Polygon} alt="" className='w-1/4 absolute right-0 top-[-3rem]'/>
         <img src={Cube} alt="" className='w-1/4 absolute left-28 bottom-0' /> */}
         <img
           src={CompMan}
-          alt=""
-          className="absolute lg:w-full md:w-2/3 sm:w-5/6 md:bottom-[-1rem] lg:bottom-[-2rem]"
+          alt="Comp man"
+          className="absolute sm:w-5/6 md:bottom-[-1rem] md:w-2/3 lg:bottom-[-2rem] lg:w-full"
         />
       </div>
     </div>

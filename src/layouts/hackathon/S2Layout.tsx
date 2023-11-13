@@ -2,9 +2,9 @@ import { Outlet } from 'react-router-dom'
 import { SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react'
 
 import HackatonProvider from '@/contexts/HackathonContext'
-import { RegisterNeed } from '@/components/RegisterNeed'
+import RegisterNeed from '@/components/RegisterNeed'
 
-export default function S2Layout() {
+const S2Layout = () => {
   return (
     <>
       <SignedIn>
@@ -22,3 +22,5 @@ export default function S2Layout() {
     </>
   )
 }
+
+export default S2Layout

@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query'
 
 import { useGlobalUser } from '@/hooks/useGlobalUser'
 
+const apiVersion = import.meta.env.VITE_API_VERSION
+
 export type VoteContextType = {
   votedFor: number | null
   setVotedFor: React.Dispatch<React.SetStateAction<number | null>>
@@ -21,9 +23,11 @@ export default function VoteProvider({
   useQuery({
     queryKey: ['votedFor', { votedFor, user }],
     queryFn: async () => {
-      const res = await fetch(`/api/v1/votes?hackathon=1&user=${user.userId}`)
+      const res = await fetch(
+        `/api/${apiVersion}/votes?hackathon=1&user=${user.userId}`
+      )
       const data = await res.json()
-      if (res.status != 200) return null
+      if (!res.ok) return null
       setVotedFor(() => data.votedFor)
       return data.votedFor
     }

@@ -1,8 +1,10 @@
 import { createContext, useState } from 'react'
-import { useUser } from '@clerk/clerk-react'
 import { useQuery } from '@tanstack/react-query'
+import { useUser } from '@clerk/clerk-react'
 
 import { User } from '@/types/user'
+
+const apiVersion = import.meta.env.VITE_API_VERSION
 
 // placeholder
 const user_placeholder: User = {
@@ -37,8 +39,10 @@ export default function UserProvider({
   useQuery({
     queryKey: ['userId', { authUser }],
     queryFn: async () => {
-      const res = await fetch(`api/v1/users/` + authUser.user!.username)
-      if (res.status == 200) {
+      const res = await fetch(
+        `api/${apiVersion}/users/${authUser.user!.username}`
+      )
+      if (res.ok) {
         const data = await res.json()
         setUser(data)
         console.log(data)

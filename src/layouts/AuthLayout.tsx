@@ -22,8 +22,9 @@ const RootLayout = () => {
   )
 }
 
-export default function AuthLayout() {
+const AuthLayout = () => {
   const queryClient = new QueryClient()
+
   return (
     <QueryClientProvider client={queryClient}>
       <UserProvider>
@@ -34,3 +35,5 @@ export default function AuthLayout() {
     </QueryClientProvider>
   )
 }
+
+export default AuthLayout

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { User } from '@/types/user'
 
 const ProfileCard = ({ user }: { user: User }) => {
@@ -12,10 +14,13 @@ const ProfileCard = ({ user }: { user: User }) => {
         <h1 className="col-span-2 row-span-1 bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 bg-clip-text text-xl font-bold text-transparent md:text-4xl lg:text-5xl">
           {user.username.toUpperCase()}
         </h1>
-        <h2 className="col-span-2 row-span-1 md:text-3xl text-xl">Developer</h2>
-        <button className="col-span-2 w-full rounded-xl bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 ">
+        <h2 className="col-span-2 row-span-1 text-xl md:text-3xl">Developer</h2>
+        <Link
+          to="#"
+          className="col-span-2 w-full rounded-xl bg-gradient-to-r from-cyan-300 via-purple-500 to-blue-500 "
+        >
           Github
-        </button>
+        </Link>
       </div>
     </>
   )

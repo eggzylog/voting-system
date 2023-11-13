@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query'
 
 import { Hackathon, HackathonSchema } from '@/types/hackathon'
 
+const apiVersion = import.meta.env.VITE_API_VERSION
+
 const hackathonPlaceholder: Hackathon = {
   hackathonId: 0,
   name: '',
@@ -33,8 +35,8 @@ export default function HackatonProvider({
   useQuery({
     queryKey: ['hackathon'],
     queryFn: async () => {
-      const res = await fetch('api/v1/hackathons/2')
-      if (res.status == 200) {
+      const res = await fetch(`/api/${apiVersion}/hackathons/2`)
+      if (res.ok) {
         const data = await res.json()
         const parsedData = HackathonSchema.parse(data)
         setHackathon(parsedData)
