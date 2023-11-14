@@ -37,7 +37,7 @@ const Season2 = () => {
             ))
           ) : (
             <RegistrationForm userId={user.userId} />
-          )} 
+          )}
         </div>
       </div>
     </div>

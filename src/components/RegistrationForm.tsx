@@ -74,19 +74,19 @@ const RegistrationForm = ({ userId }: { userId: number }) => {
           <div>
             <p className="text-xl font-bold text-white">Front-End Skill</p>
             <div className="my-4 grid grid-cols-5 gap-2 font-bold">
-              {renderRatingButtons('front-end')}
+              {renderRatingButtons('front-end', frontEndRating)}
             </div>
           </div>
           <div>
             <p className="text-xl font-bold text-white">Back-End Skill</p>
             <div className="my-4 grid grid-cols-5 gap-2 font-bold">
-              {renderRatingButtons('back-end')}
+              {renderRatingButtons('back-end', backEndRating)}
             </div>
           </div>
           <div>
             <p className="text-xl font-bold text-white">UI/UX Skill</p>
             <div className="my-4 grid grid-cols-5 gap-2 font-bold">
-              {renderRatingButtons('ui-ux')}
+              {renderRatingButtons('ui-ux', uiUxRating)}
             </div>
           </div>
           <button
